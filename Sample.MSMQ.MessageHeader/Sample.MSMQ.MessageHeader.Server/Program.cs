@@ -13,7 +13,6 @@ namespace Sample.MSMQ.MessageHeader.Server
     internal class Program
     {
         public static String HOST_QUEUE_Order = ConfigurationManager.AppSettings["HOST_QUEUE_Order"];
-        public static String HOST_QUEUE_OrderTaker = ConfigurationManager.AppSettings["HOST_QUEUE_OrderTaker"];
 
         private static void Main(string[] args)
         {
