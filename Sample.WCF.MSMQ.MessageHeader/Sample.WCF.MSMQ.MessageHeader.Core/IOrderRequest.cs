@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ServiceModel;
 
-namespace Sample.MSMQ.MessageHeader.Core
+namespace Sample.WCF.MSMQ.MessageHeader.Core
 {
     //[ServiceContract()]
     //[ServiceContract(Namespace = "http://Sample.MSMQ.MessageHeader.Core", SessionMode = SessionMode.Required)]
