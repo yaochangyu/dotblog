@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.MSMQ.Priority", "Sample.MSMQ.Priority\Sample.MSMQ.Priority.csproj", "{CE1F34CF-6DE6-423A-9CB0-4637B58F94FB}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs15
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Sample.MSMQ.Priority\\Sample.MSMQ.Priority.csproj
+		SccProjectName1 = Sample.MSMQ.Priority
+		SccLocalPath1 = Sample.MSMQ.Priority
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE1F34CF-6DE6-423A-9CB0-4637B58F94FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE1F34CF-6DE6-423A-9CB0-4637B58F94FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE1F34CF-6DE6-423A-9CB0-4637B58F94FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE1F34CF-6DE6-423A-9CB0-4637B58F94FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
