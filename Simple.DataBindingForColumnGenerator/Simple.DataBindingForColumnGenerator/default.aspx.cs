@@ -13,7 +13,6 @@ namespace Simple.DataBindingForColumnGenerator
         protected void Page_Load(object sender, EventArgs e)
         {
             this.GridView1.ColumnsGenerator = new CustomColumnGenerator<Employee>();
-            this.DetailsView1.RowsGenerator = new CustomColumnGenerator<Employee>();
         }
     }
 }

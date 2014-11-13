@@ -9,7 +9,6 @@
 <body>
     <form id="form1" runat="server">
         <div>
-
             <asp:ObjectDataSource ID="ObjectDataSource1" runat="server"
                 TypeName="Simple.DataBindingForColumnGenerator.EmployeeDataAccess"
                 DataObjectTypeName="Simple.DataBindingForColumnGenerator.Employee"
