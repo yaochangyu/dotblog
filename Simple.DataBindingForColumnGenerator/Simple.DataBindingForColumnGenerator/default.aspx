@@ -34,9 +34,6 @@
             <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="True" BorderStyle="None"
                 CellSpacing="5" DataSourceID="ObjectDataSource1" DefaultMode="Insert" GridLines="None">
                 <Fields>
-                    <%--  <asp:BoundField DataField="Name" HeaderText="Name" />
-                    <asp:BoundField DataField="Email" HeaderText="Email" />
-                    <asp:BoundField DataField="Age" HeaderText="Age" />--%>
                     <asp:CommandField ButtonType="Button" ShowInsertButton="True" ShowCancelButton="False" />
                 </Fields>
             </asp:DetailsView>

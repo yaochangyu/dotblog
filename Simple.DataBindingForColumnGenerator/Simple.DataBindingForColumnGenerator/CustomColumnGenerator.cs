@@ -27,7 +27,7 @@ namespace Simple.DataBindingForColumnGenerator
             }
             foreach (var entityProperty in s_PropertyInfo)
             {
-                var columnName = entityProperty.Name;
+                var propertyName = entityProperty.Name;
 
                 //找DisplayNameAttribute
                 var attributeProperty =
@@ -35,13 +35,13 @@ namespace Simple.DataBindingForColumnGenerator
 
                 var headerText = attributeProperty != null ?
                     attributeProperty.DisplayName :
-                    columnName;
+                    propertyName;
 
                 this._columns.Add(new BindingColumn()
                 {
-                    SortExpression = columnName,
+                    SortExpression = propertyName,
                     HeaderText = headerText,
-                    DataField = columnName
+                    DataField = propertyName
                 });
             }
         }
