@@ -60,7 +60,7 @@ namespace Simple.DataBindingForColumnGenerator
             {
                 return false;
             }
-
+            query.Id = MessageItem.Id;
             query.Email = MessageItem.Email;
             query.Age = MessageItem.Age;
             query.Name = MessageItem.Name;

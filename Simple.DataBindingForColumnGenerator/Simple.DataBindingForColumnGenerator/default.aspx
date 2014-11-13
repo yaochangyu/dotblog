@@ -21,7 +21,7 @@
             <br />
             <asp:GridView ID="GridView1" runat="server"
                 AutoGenerateColumns="True"
-                DataKeyNames="Id,Name,Age,Email"
+                DataKeyNames="Id"
                 DataSourceID="ObjectDataSource1">
                 <Columns>
                     <asp:CommandField ShowEditButton="True" />
