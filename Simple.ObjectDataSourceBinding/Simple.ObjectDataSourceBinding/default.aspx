@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="Simple.ObjectDataSourceBinding.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="Simple.ObjectDataSourceBinding.Default" %>
 
 <!DOCTYPE html>
 
@@ -18,6 +18,7 @@
                 DeleteMethod="Delete"
                 InsertMethod="Insert"
                 UpdateMethod="Update">
+
                 <UpdateParameters>
                     <asp:Parameter Name="Birthday" Type="DateTime" />
                 </UpdateParameters>

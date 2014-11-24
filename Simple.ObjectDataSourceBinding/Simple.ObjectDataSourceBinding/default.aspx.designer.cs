@@ -10,7 +10,7 @@
 namespace Simple.ObjectDataSourceBinding {
     
     
-    public partial class WebForm1 {
+    public partial class Default {
         
         /// <summary>
         /// form1 control.
