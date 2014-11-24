@@ -35,29 +35,33 @@ namespace Simple.ObjectDataSourceBinding
             return this.m_Employees;
         }
 
+        private static int s_Index = 5;
+
         //建立假資料
         private List<Employee> GetEmployeeItems()
         {
             var employees = new List<Employee>();
-            employees.Add(new Employee() { Id = 1, Age = 51, Name = "name1", Email = "email1" });
-            employees.Add(new Employee() { Id = 2, Age = 22, Name = "name2", Email = "email2" });
-            employees.Add(new Employee() { Id = 3, Age = 33, Name = "name3", Email = "email3" });
-            employees.Add(new Employee() { Id = 4, Age = 43, Name = "name4", Email = "email4" });
+            employees.Add(new Employee() { Id = 1, Age = 51, Name = "yao", Email = "yao@aa.bb", Birthday = new DateTime(1981, 11, 12, 21, 44, 14) });
+            employees.Add(new Employee() { Id = 2, Age = 22, Name = "kobe", Email = "kobe@aa.cc", Birthday = new DateTime(1966, 11, 11, 20, 35, 14) });
+            employees.Add(new Employee() { Id = 3, Age = 33, Name = "jordan", Email = "jordan@aa.bb", Birthday = new DateTime(1971, 01, 12, 02, 33, 14) });
+            employees.Add(new Employee() { Id = 4, Age = 43, Name = "bill", Email = "bill@aa.cc", Birthday = new DateTime(1980, 12, 22, 13, 25, 14) });
             return employees;
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Employee MessageItem)
+        public void Insert(Employee employee)
         {
-            this.m_Employees.Add(MessageItem);
+            employee.Id = s_Index;
+            this.m_Employees.Add(employee);
             HttpContext.Current.Cache[SESSION_FAKE_DATA] = this.m_Employees;
+            s_Index++;
         }
 
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public bool Update(Employee MessageItem)
+        public bool Update(Employee employee)
         {
             var query = (from element in this.m_Employees
-                         where element.Id == MessageItem.Id
+                         where element.Id == employee.Id
                          select element).FirstOrDefault();
 
             if (query == null)
@@ -65,9 +69,9 @@ namespace Simple.ObjectDataSourceBinding
                 return false;
             }
 
-            query.Email = MessageItem.Email;
-            query.Age = MessageItem.Age;
-            query.Name = MessageItem.Name;
+            query.Email = employee.Email;
+            query.Age = employee.Age;
+            query.Name = employee.Name;
             HttpContext.Current.Cache[SESSION_FAKE_DATA] = this.m_Employees;
             return true;
         }

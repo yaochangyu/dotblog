@@ -17,16 +17,27 @@
                 SelectMethod="GetEmployees"
                 DeleteMethod="Delete"
                 InsertMethod="Insert"
-                UpdateMethod="Update"></asp:ObjectDataSource>
+                UpdateMethod="Update">
+                <UpdateParameters>
+                    <asp:Parameter Name="Birthday" Type="DateTime" />
+                </UpdateParameters>
+                <InsertParameters>
+                    <asp:Parameter Name="Birthday" Type="DateTime" />
+                </InsertParameters>
+            </asp:ObjectDataSource>
 
             <br />
             <asp:GridView ID="GridView1" runat="server"
-                AutoGenerateColumns="True"
+                AutoGenerateColumns="False"
                 DataSourceID="ObjectDataSource1"
-                DataKeyNames="Id,Name,Age,Email">
+                DataKeyNames="Id">
                 <Columns>
-                    <asp:CommandField ShowEditButton="True" />
-                    <asp:CommandField ShowDeleteButton="True" />
+                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                    <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" ReadOnly="True" />
+                    <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                    <asp:BoundField DataField="Age" HeaderText="Age" SortExpression="Age" />
+                    <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                    <asp:BoundField DataField="Birthday" HeaderText="Birthday" SortExpression="Birthday" DataFormatString="{0:yyyy/MM/dd}" />
                 </Columns>
             </asp:GridView>
 
@@ -34,10 +45,12 @@
             <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" BorderStyle="None"
                 CellSpacing="5" DataSourceID="ObjectDataSource1" DefaultMode="Insert" GridLines="None">
                 <Fields>
-                    <asp:BoundField DataField="Name" HeaderText="Name" />
-                    <asp:BoundField DataField="Email" HeaderText="Email" />
-                    <asp:BoundField DataField="Age" HeaderText="Age" />
-                    <asp:CommandField ButtonType="Button" ShowInsertButton="True" ShowCancelButton="False" />
+                    <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" Visible="False" />
+                    <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                    <asp:BoundField DataField="Age" HeaderText="Age" SortExpression="Age" />
+                    <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                    <asp:BoundField DataField="Birthday" HeaderText="Birthday" SortExpression="Birthday" />
+                    <asp:CommandField ShowInsertButton="True" ShowCancelButton="False" ButtonType="Button" />
                 </Fields>
             </asp:DetailsView>
         </div>
