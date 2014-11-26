@@ -79,7 +79,7 @@ namespace Simple.ObjectDataSourcePaging.DataAccess
             var max = this.m_Employees.Max(p => p.Id);
             employee.Id = max++;
             this.m_Employees.Add(employee);
-            HttpContext.Current.Cache[SESSION_FAKE_DATA] = this.m_Employees;
+            //HttpContext.Current.Cache[SESSION_FAKE_DATA] = this.m_Employees;
         }
 
         [DataObjectMethod(DataObjectMethodType.Update)]
@@ -97,7 +97,7 @@ namespace Simple.ObjectDataSourcePaging.DataAccess
             query.Email = employee.Email;
             query.Age = employee.Age;
             query.Name = employee.Name;
-            HttpContext.Current.Cache[SESSION_FAKE_DATA] = this.m_Employees;
+            //HttpContext.Current.Cache[SESSION_FAKE_DATA] = this.m_Employees;
             return true;
         }
 
@@ -112,7 +112,7 @@ namespace Simple.ObjectDataSourcePaging.DataAccess
                 return false;
             }
             this.m_Employees.Remove(query);
-            HttpContext.Current.Cache[SESSION_FAKE_DATA] = this.m_Employees;
+            //HttpContext.Current.Cache[SESSION_FAKE_DATA] = this.m_Employees;
             return true;
         }
     }
