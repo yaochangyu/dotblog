@@ -43,11 +43,23 @@ namespace Simple.ObjectDataSourcePaging.DataAccess
         [DataObjectMethod(DataObjectMethodType.Select)]
         public IEnumerable<Employee> GetEmployees(int maximumRows, int startRowIndex, string orderBy)
         {
-            if (string.IsNullOrWhiteSpace(orderBy))//網頁第一次進來orderby為空，所以給它預設值
+            //控制項的行為都不一樣，所得到的orderBy也會不一樣
+            if (string.IsNullOrWhiteSpace(orderBy))
             {
-                orderBy = "Id";
+                return this.m_Employees.OrderBy(orderBy).Skip(startRowIndex).Take(maximumRows);
             }
-            return this.m_Employees.OrderBy(orderBy).Skip(startRowIndex).Take(maximumRows);
+            var columnName = "";
+
+            if (orderBy.Contains("DESC"))
+            {
+                var split = orderBy.Split(' ');
+                columnName = split[0];
+                return this.m_Employees.OrderByDescending(columnName).Skip(startRowIndex).Take(maximumRows);
+            }
+            else
+            {
+                return this.m_Employees.OrderBy(orderBy).Skip(startRowIndex).Take(maximumRows);
+            }
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
