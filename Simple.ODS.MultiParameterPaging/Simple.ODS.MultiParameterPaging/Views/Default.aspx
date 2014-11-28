@@ -52,7 +52,8 @@
                 AllowPaging="True"
                 PageSize="3"
                 AllowSorting="True"
-                DataKeyNames="Id">
+                DataKeyNames="Id"
+                OnDataBound="Employee_GridView_DataBound">
 
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />

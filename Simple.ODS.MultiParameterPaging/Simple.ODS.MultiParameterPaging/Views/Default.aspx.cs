@@ -32,5 +32,14 @@ namespace Simple.ODS.MultiParameterPaging
                 ddl.SelectedIndex = 0;
             }
         }
+
+        protected void Employee_GridView_DataBound(object sender, EventArgs e)
+        {
+            var gv = (GridView)sender;
+            if (gv.PageCount <= 0)
+            {
+                gv.PageIndex = 0;
+            }
+        }
     }
 }
