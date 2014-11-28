@@ -12,5 +12,25 @@ namespace Simple.ODS.MultiParameterPaging
         protected void Page_Load(object sender, EventArgs e)
         {
         }
+
+        protected void Location_DropDownList_DataBound(object sender, EventArgs e)
+        {
+            var ddl = (DropDownList)sender;
+            var isExists = false;
+            foreach (ListItem item in ddl.Items)
+            {
+                if (item.Value == "ALL")
+                {
+                    isExists = true;
+                    break;
+                }
+            }
+            if (!isExists)
+            {
+                ddl.Items.Insert(0, "ALL");
+                ddl.Items[0].Value = "ALL";
+                ddl.SelectedIndex = 0;
+            }
+        }
     }
 }

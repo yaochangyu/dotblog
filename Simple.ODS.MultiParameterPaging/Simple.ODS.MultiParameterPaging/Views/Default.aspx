@@ -16,7 +16,8 @@
 
             <asp:Label ID="Label1" runat="server" Text="位置"></asp:Label>
             <asp:DropDownList ID="Location_DropDownList" runat="server" AutoPostBack="True"
-                DataSourceID="Location_ObjectDataSource">
+                DataSourceID="Location_ObjectDataSource"
+                OnDataBound="Location_DropDownList_DataBound">
             </asp:DropDownList>
             &nbsp;
 
@@ -38,15 +39,23 @@
                     <asp:Parameter Name="startRowIndex" Type="Int32" />
                     <asp:Parameter Name="orderBy" Type="String" />
                 </SelectParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="Birthday" Type="DateTime" />
+                </UpdateParameters>
+                <InsertParameters>
+                    <asp:Parameter Name="Birthday" Type="DateTime" />
+                </InsertParameters>
             </asp:ObjectDataSource>
             <br />
             <asp:GridView ID="Employee_GridView" runat="server" AutoGenerateColumns="False" DataSourceID="Employee_ObjectDataSource"
                 ForeColor="#333333" CellPadding="4"
                 AllowPaging="True"
                 PageSize="3"
-                AllowSorting="True">
+                AllowSorting="True"
+                DataKeyNames="Id">
 
                 <Columns>
+                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                     <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
                     <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
                     <asp:BoundField DataField="Age" HeaderText="Age" SortExpression="Age" />
@@ -62,6 +71,23 @@
                 <AlternatingRowStyle BackColor="White" />--%>
             </asp:GridView>
             <br />
+
+            <asp:DetailsView ID="DetailsView1" runat="server"
+                Height="50px"
+                Width="125px"
+                AutoGenerateRows="False"
+                DataSourceID="Employee_ObjectDataSource"
+                DefaultMode="Insert">
+                <Fields>
+                    <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" Visible="False" />
+                    <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                    <asp:BoundField DataField="Age" HeaderText="Age" SortExpression="Age" />
+                    <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                    <asp:BoundField DataField="Location" HeaderText="Location" SortExpression="Location" />
+                    <asp:BoundField DataField="Birthday" HeaderText="Birthday" SortExpression="Birthday" />
+                    <asp:CommandField ShowInsertButton="True" ShowCancelButton="False" ButtonType="Button" />
+                </Fields>
+            </asp:DetailsView>
             <br />
         </div>
     </form>

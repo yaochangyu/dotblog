@@ -36,36 +36,53 @@ namespace Simple.ODS.MultiParameterPaging
         [DataObjectMethod(DataObjectMethodType.Select)]
         public int GetEmployeeCount(string location, int maximumRows, int startRowIndex, string orderBy)
         {
-            var queryCount = this.m_Employees.Count(e => e.Location == location);
+            Func<Employee, bool> condition = null;
+            if (location == "ALL")
+            {
+                condition = e => true;
+            }
+            else
+            {
+                condition = e => e.Location == location;
+            }
+            var queryCount = this.m_Employees.Count(condition);
             return queryCount;
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
         public IEnumerable<Employee> GetEmployees(string location, int maximumRows, int startRowIndex, string orderBy)
         {
-            //控制項的行為都不一樣，所得到的orderBy也會不一樣
-            var columnName = "";
+            Func<Employee, bool> condition = null;
+            if (location == "ALL")
+            {
+                condition = e => true;
+            }
+            else
+            {
+                condition = e => e.Location == location;
+            }
             if (string.IsNullOrWhiteSpace(orderBy))
             {
-                return this.m_Employees.Where(e => e.Location == location)
+                return this.m_Employees.Where(condition)
                                        .OrderBy("Id")
                                        .Skip(startRowIndex)
                                        .Take(maximumRows);
             }
 
+            //控制項的行為都不一樣，所得到的orderBy也會不一樣
             if (orderBy.Contains("DESC"))
             {
                 var split = orderBy.Split(' ');
-                columnName = split[0];
-                return this.m_Employees.Where(e => e.Location == location)
+                var columnName = split[0];
+                return this.m_Employees.Where(condition)
                                        .OrderByDescending(columnName)
                                        .Skip(startRowIndex)
                                        .Take(maximumRows);
             }
             else
             {
-                return this.m_Employees.Where(e => e.Location == location)
-                                       .OrderBy(columnName)
+                return this.m_Employees.Where(condition)
+                                       .OrderBy(orderBy)
                                        .Skip(startRowIndex)
                                        .Take(maximumRows);
             }
@@ -99,35 +116,35 @@ namespace Simple.ODS.MultiParameterPaging
         {
             var max = this.m_Employees.Max(p => p.Id);
             employee.Id = max++;
-            this.m_Employees.Add(employee);
+            this.m_Employees.Insert(0, employee);
             //HttpContext.Current.Cache[SESSION_FAKE_DATA] = this.m_Employees;
         }
 
         [DataObjectMethod(DataObjectMethodType.Update)]
         public bool Update(Employee employee)
         {
-            var query = (from element in this.m_Employees
-                         where element.Id == employee.Id
-                         select element).FirstOrDefault();
+            var queryIndex = (from element in this.m_Employees
+                              where element.Id == employee.Id
+                              let index = this.m_Employees.IndexOf(element)
+                              select new { Index = index, Employee = element }).FirstOrDefault();
 
-            if (query == null)
+            if (queryIndex == null)
             {
                 return false;
             }
 
-            query.Email = employee.Email;
-            query.Age = employee.Age;
-            query.Name = employee.Name;
+            this.m_Employees[queryIndex.Index] = employee;
             //HttpContext.Current.Cache[SESSION_FAKE_DATA] = this.m_Employees;
             return true;
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public bool Delete(Employee MessageItem)
+        public bool Delete(Employee employee)
         {
             var query = (from element in this.m_Employees
-                         where element.Id == MessageItem.Id
+                         where element.Id == employee.Id
                          select element).FirstOrDefault();
+
             if (query == null)
             {
                 return false;
