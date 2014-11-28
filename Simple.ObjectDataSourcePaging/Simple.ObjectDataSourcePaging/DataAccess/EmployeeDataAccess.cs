@@ -12,19 +12,19 @@ namespace Simple.ObjectDataSourcePaging.DataAccess
     [DataObject(true)]
     public class EmployeeDataAccess
     {
-        private const string SESSION_FAKE_DATA = "SESSION_FAKE_DATA";
+        private const string CACHE_FAKE_DATA = "CACHE_FAKE_DATA";
         private List<Employee> m_Employees = null;
 
         public EmployeeDataAccess()
         {
-            if (HttpContext.Current.Cache[SESSION_FAKE_DATA] == null)
+            if (HttpContext.Current.Cache[CACHE_FAKE_DATA] == null)
             {
                 this.m_Employees = GetEmployeeItems();
-                HttpContext.Current.Cache[SESSION_FAKE_DATA] = this.m_Employees;
+                HttpContext.Current.Cache[CACHE_FAKE_DATA] = this.m_Employees;
             }
             else
             {
-                this.m_Employees = HttpContext.Current.Cache[SESSION_FAKE_DATA] as List<Employee>;
+                this.m_Employees = HttpContext.Current.Cache[CACHE_FAKE_DATA] as List<Employee>;
             }
         }
 
@@ -46,14 +46,13 @@ namespace Simple.ObjectDataSourcePaging.DataAccess
             //控制項的行為都不一樣，所得到的orderBy也會不一樣
             if (string.IsNullOrWhiteSpace(orderBy))
             {
-                return this.m_Employees.OrderBy(orderBy).Skip(startRowIndex).Take(maximumRows);
+                return this.m_Employees.OrderBy("Id").Skip(startRowIndex).Take(maximumRows);
             }
-            var columnName = "";
 
             if (orderBy.Contains("DESC"))
             {
                 var split = orderBy.Split(' ');
-                columnName = split[0];
+                var columnName = split[0];
                 return this.m_Employees.OrderByDescending(columnName).Skip(startRowIndex).Take(maximumRows);
             }
             else
@@ -106,18 +105,17 @@ namespace Simple.ObjectDataSourcePaging.DataAccess
                 return false;
             }
 
-            query.Email = employee.Email;
-            query.Age = employee.Age;
-            query.Name = employee.Name;
+            var index = this.m_Employees.IndexOf(query);
+            this.m_Employees[index] = employee;
             //HttpContext.Current.Cache[SESSION_FAKE_DATA] = this.m_Employees;
             return true;
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public bool Delete(Employee MessageItem)
+        public bool Delete(Employee employee)
         {
             var query = (from element in this.m_Employees
-                         where element.Id == MessageItem.Id
+                         where element.Id == employee.Id
                          select element).FirstOrDefault();
             if (query == null)
             {

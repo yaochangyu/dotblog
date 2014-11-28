@@ -34,7 +34,8 @@
                 DataKeyNames="Id"
                 AllowPaging="True"
                 PageSize="3"
-                AllowSorting="True">
+                AllowSorting="True"
+                OnDataBound="GridView1_DataBound">
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
                     <asp:BoundField DataField="Id" HeaderText="流水號" SortExpression="Id" />
