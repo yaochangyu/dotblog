@@ -31,12 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.accountDataGridView = new System.Windows.Forms.DataGridView();
-            this.accountLogDataGridView = new System.Windows.Forms.DataGridView();
+            this.Account_DataGridView = new System.Windows.Forms.DataGridView();
+            this.AccountLog_DataGridView = new System.Windows.Forms.DataGridView();
             this.AccountLog_BindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem1 = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -45,6 +44,7 @@
             this.bindingNavigatorMoveNextItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.Account_BindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.Account_BindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -67,8 +67,8 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.accountDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accountLogDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Account_DataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AccountLog_DataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AccountLog_BindingNavigator)).BeginInit();
             this.AccountLog_BindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Account_BindingNavigator)).BeginInit();
@@ -87,45 +87,45 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
-            this.splitContainer1.Panel1.Controls.Add(this.accountDataGridView);
+            this.splitContainer1.Panel1.Controls.Add(this.Account_DataGridView);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
-            this.splitContainer1.Panel2.Controls.Add(this.accountLogDataGridView);
+            this.splitContainer1.Panel2.Controls.Add(this.AccountLog_DataGridView);
             this.splitContainer1.Panel2.Controls.Add(this.AccountLog_BindingNavigator);
             this.splitContainer1.Size = new System.Drawing.Size(561, 375);
             this.splitContainer1.SplitterDistance = 187;
             this.splitContainer1.TabIndex = 1;
             // 
-            // accountDataGridView
+            // Account_DataGridView
             // 
-            this.accountDataGridView.AllowUserToAddRows = false;
-            this.accountDataGridView.AutoGenerateColumns = false;
-            this.accountDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.accountDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Account_DataGridView.AllowUserToAddRows = false;
+            this.Account_DataGridView.AutoGenerateColumns = false;
+            this.Account_DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Account_DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
-            this.accountDataGridView.DataSource = this.Account_BindingSource;
-            this.accountDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.accountDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.accountDataGridView.Name = "accountDataGridView";
-            this.accountDataGridView.Size = new System.Drawing.Size(561, 187);
-            this.accountDataGridView.TabIndex = 2;
+            this.Account_DataGridView.DataSource = this.Account_BindingSource;
+            this.Account_DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Account_DataGridView.Location = new System.Drawing.Point(0, 0);
+            this.Account_DataGridView.Name = "Account_DataGridView";
+            this.Account_DataGridView.Size = new System.Drawing.Size(561, 187);
+            this.Account_DataGridView.TabIndex = 2;
             // 
-            // accountLogDataGridView
+            // AccountLog_DataGridView
             // 
-            this.accountLogDataGridView.AllowUserToAddRows = false;
-            this.accountLogDataGridView.AutoGenerateColumns = false;
-            this.accountLogDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.accountLogDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.AccountLog_DataGridView.AllowUserToAddRows = false;
+            this.AccountLog_DataGridView.AutoGenerateColumns = false;
+            this.AccountLog_DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AccountLog_DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.lastLoginTimeDataGridViewTextBoxColumn});
-            this.accountLogDataGridView.DataSource = this.AccountLog_BindingSource;
-            this.accountLogDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.accountLogDataGridView.Location = new System.Drawing.Point(0, 25);
-            this.accountLogDataGridView.Name = "accountLogDataGridView";
-            this.accountLogDataGridView.Size = new System.Drawing.Size(561, 159);
-            this.accountLogDataGridView.TabIndex = 2;
+            this.AccountLog_DataGridView.DataSource = this.AccountLog_BindingSource;
+            this.AccountLog_DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AccountLog_DataGridView.Location = new System.Drawing.Point(0, 25);
+            this.AccountLog_DataGridView.Name = "AccountLog_DataGridView";
+            this.AccountLog_DataGridView.Size = new System.Drawing.Size(561, 159);
+            this.AccountLog_DataGridView.TabIndex = 2;
             // 
             // AccountLog_BindingNavigator
             // 
@@ -171,16 +171,6 @@
             this.bindingNavigatorCountItem1.Size = new System.Drawing.Size(35, 22);
             this.bindingNavigatorCountItem1.Text = "of {0}";
             this.bindingNavigatorCountItem1.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem1
             // 
@@ -241,6 +231,16 @@
             // 
             this.bindingNavigatorSeparator5.Name = "bindingNavigatorSeparator5";
             this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // Account_BindingNavigator
             // 
@@ -410,8 +410,8 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.accountDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accountLogDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Account_DataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AccountLog_DataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AccountLog_BindingNavigator)).EndInit();
             this.AccountLog_BindingNavigator.ResumeLayout(false);
             this.AccountLog_BindingNavigator.PerformLayout();
@@ -433,7 +433,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
         private System.Windows.Forms.BindingSource Account_BindingSource;
-        private System.Windows.Forms.DataGridView accountDataGridView;
+        private System.Windows.Forms.DataGridView Account_DataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.BindingNavigator Account_BindingNavigator;
@@ -449,7 +449,7 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton Account_BindingNavigatorSaveItem;
-        private System.Windows.Forms.DataGridView accountLogDataGridView;
+        private System.Windows.Forms.DataGridView AccountLog_DataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.BindingSource AccountLog_BindingSource;
         private System.Windows.Forms.BindingNavigator AccountLog_BindingNavigator;

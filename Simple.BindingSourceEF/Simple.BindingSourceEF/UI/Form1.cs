@@ -2,6 +2,7 @@
 using Simple.BindingSourceEF.DAL.Model;
 using System;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -14,7 +15,7 @@ namespace Simple.BindingSourceEF.UI
         public Form1()
         {
             InitializeComponent();
-            //Database.SetInitializer(new ThreeLayerDropCreateDatabaseAlways());
+
             if (this.BusinessFlowDao == null)
             {
                 this.BusinessFlowDao = new BusinessFlowDao();
@@ -24,7 +25,7 @@ namespace Simple.BindingSourceEF.UI
         private void Form1_Load(object sender, EventArgs e)
         {
             this.Account_BindingSource.PositionChanged += Account_BindingSource_PositionChanged;
-            this.Account_BindingSource.DataSource = this.BusinessFlowDao.GetAllAccounts().ToList();
+            this.Account_BindingSource.DataSource = this.BusinessFlowDao.GetAllAccounts();
         }
 
 
@@ -82,5 +83,8 @@ namespace Simple.BindingSourceEF.UI
             this.Validate();
             this.BusinessFlowDao.Commit();
         }
+
+
+
     }
 }

@@ -8,6 +8,8 @@ namespace Simple.BindingSourceEF.DAL
         public ThreeLayerDbContext()
             : base("localdb")
         {
+
+
         }
 
         public ThreeLayerDbContext(string connectString)
@@ -18,5 +20,7 @@ namespace Simple.BindingSourceEF.DAL
         public DbSet<Account> Accounts { get; set; }
 
         public DbSet<AccountLog> AccountLogs { get; set; }
+
+
     }
 }

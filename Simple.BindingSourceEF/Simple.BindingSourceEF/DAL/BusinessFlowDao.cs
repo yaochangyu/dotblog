@@ -1,6 +1,7 @@
 ﻿using Simple.BindingSourceEF.DAL.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace Simple.BindingSourceEF.DAL
@@ -11,15 +12,19 @@ namespace Simple.BindingSourceEF.DAL
 
         public BusinessFlowDao()
         {
+            Database.SetInitializer(new ThreeLayerCreateDatabaseIfNotExists());
+
             if (this._db == null)
             {
                 this._db = new ThreeLayerDbContext();
+                this._db.Database.Initialize(true);
             }
+
         }
 
         public IEnumerable<Account> GetAllAccounts()
         {
-            return this._db.Accounts;
+            return this._db.Accounts.ToList();
         }
 
         public IEnumerable<AccountLog> GetAllAccountLogs(Guid id)
