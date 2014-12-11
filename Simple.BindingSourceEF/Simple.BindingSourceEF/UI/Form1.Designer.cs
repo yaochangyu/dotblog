@@ -58,11 +58,11 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.Account_BindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.Account_BindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Account_BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lastLoginTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AccountLog_BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -104,8 +104,8 @@
             this.Account_DataGridView.AutoGenerateColumns = false;
             this.Account_DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Account_DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2});
+            this.userIdDataGridViewTextBoxColumn,
+            this.passwordDataGridViewTextBoxColumn});
             this.Account_DataGridView.DataSource = this.Account_BindingSource;
             this.Account_DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Account_DataGridView.Location = new System.Drawing.Point(0, 0);
@@ -367,18 +367,6 @@
             this.Account_BindingNavigatorSaveItem.Text = "Save Data";
             this.Account_BindingNavigatorSaveItem.Click += new System.EventHandler(this.Account_BindingNavigatorSaveItem_Click);
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "UserId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "UserId";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Password";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Password";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
             // Account_BindingSource
             // 
             this.Account_BindingSource.DataSource = typeof(Simple.BindingSourceEF.DAL.Model.Account);
@@ -394,6 +382,18 @@
             // 
             this.AccountLog_BindingSource.DataSource = typeof(Simple.BindingSourceEF.DAL.Model.AccountLog);
             this.AccountLog_BindingSource.AddingNew += new System.ComponentModel.AddingNewEventHandler(this.AccountLog_BindingSource_AddingNew);
+            // 
+            // userIdDataGridViewTextBoxColumn
+            // 
+            this.userIdDataGridViewTextBoxColumn.DataPropertyName = "UserId";
+            this.userIdDataGridViewTextBoxColumn.HeaderText = "UserId";
+            this.userIdDataGridViewTextBoxColumn.Name = "userIdDataGridViewTextBoxColumn";
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
             // 
             // Form1
             // 
@@ -434,8 +434,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
         private System.Windows.Forms.BindingSource Account_BindingSource;
         private System.Windows.Forms.DataGridView Account_DataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.BindingNavigator Account_BindingNavigator;
         private System.Windows.Forms.ToolStripButton Account_BindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -465,6 +463,8 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem1;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator5;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastLoginTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
     }
 }
 

@@ -5,16 +5,13 @@ using System.Data.Entity;
 
 namespace Simple.BindingSourceEF.DAL
 {
-    //public class ThreeLayerDropCreateDatabaseAlways : DropCreateDatabaseAlways<ThreeLayerDbContext>
-    public class ThreeLayerCreateDatabaseIfNotExists : CreateDatabaseIfNotExists<ThreeLayerDbContext>
+    //public class DbInitializer : DropCreateDatabaseAlways<ThreeLayerDbContext>
+    public class DbInitializer : DropCreateDatabaseIfModelChanges<ThreeLayerDbContext>
+    //public class DbInitializer : CreateDatabaseIfNotExists<ThreeLayerDbContext>
     {
-        public override void InitializeDatabase(ThreeLayerDbContext context)
+        protected override void Seed(ThreeLayerDbContext context)
         {
-            //base.InitializeDatabase(context);
-            if (!context.Database.CreateIfNotExists())
-            {
-                return;
-            }
+            base.Seed(context);
 
             Account account1 = new Account() { UserId = "yao1", Password = "1234" };
             Account account2 = new Account() { UserId = "yao2", Password = RandomPassword() };

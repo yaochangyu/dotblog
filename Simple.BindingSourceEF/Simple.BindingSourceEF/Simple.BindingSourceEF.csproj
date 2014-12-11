@@ -77,7 +77,7 @@
     <Compile Include="DAL\Model\Account.cs" />
     <Compile Include="DAL\Model\AccountLog.cs" />
     <Compile Include="DAL\BusinessFlowDao.cs" />
-    <Compile Include="DAL\ThreeLayerCreateDatabaseIfNotExists.cs" />
+    <Compile Include="DAL\DbInitialize.cs" />
     <Compile Include="DAL\ThreeLayerDbContext.cs" />
     <Compile Include="UI\Form1.cs">
       <SubType>Form</SubType>

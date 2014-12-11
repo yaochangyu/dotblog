@@ -12,14 +12,13 @@ namespace Simple.BindingSourceEF.DAL
 
         public BusinessFlowDao()
         {
-            Database.SetInitializer(new ThreeLayerCreateDatabaseIfNotExists());
+            Database.SetInitializer(new DbInitializer());
 
             if (this._db == null)
             {
                 this._db = new ThreeLayerDbContext();
-                this._db.Database.Initialize(true);
+                //this._db.Database.Initialize(true);
             }
-
         }
 
         public IEnumerable<Account> GetAllAccounts()
