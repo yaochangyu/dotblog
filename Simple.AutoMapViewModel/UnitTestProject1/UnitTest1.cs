@@ -11,7 +11,7 @@ namespace UnitTestProject1
     public class UnitTest1
     {
         [TestMethod]
-        public void Migration_AccountTWViewModel_Test()
+        public void Migration_AccountTwViewModel_Test()
         {
             AccountTwViewModel source = new AccountTwViewModel();
             source.帳號 = "yao123";
@@ -33,7 +33,7 @@ namespace UnitTestProject1
             Assert.AreEqual(source.Password, target.Password);
         }
         [TestMethod]
-        public void Migration_AccountToAccountTWViewModel_Test()
+        public void Migration_Account_AccountTwViewModel_Test()
         {
             Account source = new Account();
             source.UserId = "yao123";
@@ -44,7 +44,7 @@ namespace UnitTestProject1
             Assert.AreEqual(source.Password, target.密碼);
         }
         [TestMethod]
-        public void Migration_AccountToAccountViewModel_Test()
+        public void Migration_Account_AccountViewModel_Test()
         {
             Account source = new Account();
             source.UserId = "yao123";

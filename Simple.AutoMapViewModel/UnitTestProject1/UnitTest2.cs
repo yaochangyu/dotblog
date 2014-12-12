@@ -11,7 +11,7 @@ namespace UnitTestProject1
     public class UnitTest2
     {
         [TestMethod]
-        public void Account_AccountViewModel_Test()
+        public void AutoMapper_Account_AccountViewModel_Test()
         {
             Account account = new Account();
             account.UserId = "yao123";
@@ -22,7 +22,7 @@ namespace UnitTestProject1
             Assert.AreEqual(account.Password, actual.Password);
         }
         [TestMethod]
-        public void AccountViewModel_Account_Test()
+        public void AutoMapper_AccountViewModel_Account_Test()
         {
             AccountViewModel viewModel = new AccountViewModel();
             viewModel.UserId = "yao123";
@@ -34,7 +34,7 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void Account_AccountTwViewModel_Test()
+        public void AutoMapper_Account_AccountTwViewModel_Test()
         {
             Account account = new Account();
             account.UserId = "yao123";
@@ -49,7 +49,7 @@ namespace UnitTestProject1
 
 
         [TestMethod]
-        public void AccountTwViewModel_Account_Test()
+        public void AutoMapper_AccountTwViewModel_Account_Test()
         {
             AccountTwViewModel account = new AccountTwViewModel();
             account.帳號 = "yao123";

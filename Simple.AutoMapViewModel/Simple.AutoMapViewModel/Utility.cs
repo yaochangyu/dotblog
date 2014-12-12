@@ -24,7 +24,14 @@ namespace Simple.AutoMapViewModel
                 foreach (var targetProperty in targetProperties)
                 {
                     var targetPropertyName = targetProperty.Name;
-
+                    if (sourcePropertyName == targetPropertyName)
+                    {
+                        if (sourceProperty.PropertyType == targetProperty.PropertyType)
+                        {
+                            targetProperty.SetValue(targetInstance, sourceValue);
+                            break;
+                        }
+                    }
                     var mappingAttributes = targetProperty.GetCustomAttributes(mappingAttributeType, false);
                     if (mappingAttributes.Any())
                     {
@@ -37,23 +44,9 @@ namespace Simple.AutoMapViewModel
                                 break;
                             }
                         }
-                        else if (sourcePropertyName == targetPropertyName)
-                        {
-                            if (sourceProperty.PropertyType == targetProperty.PropertyType)
-                            {
-                                targetProperty.SetValue(targetInstance, sourceValue);
-                                break;
-                            }
-                        }
+
                     }
-                    else if (sourcePropertyName == targetPropertyName)
-                    {
-                        if (sourceProperty.PropertyType == targetProperty.PropertyType)
-                        {
-                            targetProperty.SetValue(targetInstance, sourceValue);
-                            break;
-                        }
-                    }
+
                 }
             }
             return targetInstance;

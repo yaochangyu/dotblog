@@ -16,5 +16,10 @@ namespace Simple.AutoMapViewModel
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
