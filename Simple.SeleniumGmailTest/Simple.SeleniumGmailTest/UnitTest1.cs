@@ -18,8 +18,8 @@ namespace Simple.SeleniumGmailTest
         [TestInitialize]
         public void SetupTest()
         {
-            
-            driver = new 
+
+            driver = new FirefoxDriver();
 
             baseURL = "https://gmail.google.com/";
             verificationErrors = new StringBuilder();
