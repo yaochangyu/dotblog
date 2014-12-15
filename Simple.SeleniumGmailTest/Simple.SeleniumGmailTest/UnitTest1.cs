@@ -15,6 +15,12 @@ namespace Simple.SeleniumGmailTest
         private string baseURL;
         private bool acceptNextAlert = true;
 
+        private string Your_Account = "";
+        private string Your_Password = "";
+        private string Your_Email = "";
+
+        private string Your_NickName = "+小章";
+
         [TestInitialize]
         public void SetupTest()
         {
@@ -44,10 +50,11 @@ namespace Simple.SeleniumGmailTest
         {
             driver.Navigate().GoToUrl(baseURL + "");
             driver.FindElement(By.Id("Email")).Clear();
-            driver.FindElement(By.Id("Email")).SendKeys(your id);
+            driver.FindElement(By.Id("Email")).SendKeys(Your_Account);
             driver.FindElement(By.Id("Passwd")).Clear();
-            driver.FindElement(By.Id("Passwd")).SendKeys(your password);
+            driver.FindElement(By.Id("Passwd")).SendKeys(Your_Password);
             driver.FindElement(By.Id("signIn")).Click();
+            Thread.Sleep(1000);
             Assert.IsTrue(IsElementPresent(By.LinkText("+小章")));
             Assert.AreEqual("+小章", driver.FindElement(By.LinkText("+小章")).Text);
             driver.FindElement(By.CssSelector("span.gb_6.gbii")).Click();
@@ -63,7 +70,7 @@ namespace Simple.SeleniumGmailTest
                 { }
                 Thread.Sleep(1000);
             }
-            Assert.AreEqual(your email, driver.FindElement(By.Id("reauthEmail")).Text);
+            Assert.AreEqual(Your_Email, driver.FindElement(By.Id("reauthEmail")).Text);
         }
         private bool IsElementPresent(By by)
         {
