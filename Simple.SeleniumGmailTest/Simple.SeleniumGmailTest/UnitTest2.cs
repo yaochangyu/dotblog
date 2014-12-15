@@ -18,7 +18,9 @@ namespace Simple.SeleniumGmailTest
 
         public UnitTest2()
         {
-            SeleniumWebDriver.Bootstrap(SeleniumWebDriver.Browser.Firefox);
+            SeleniumWebDriver.Bootstrap(SeleniumWebDriver.Browser.Firefox,
+                                        SeleniumWebDriver.Browser.Chrome
+                                        );
         }
 
         [TestMethod]
@@ -29,7 +31,7 @@ namespace Simple.SeleniumGmailTest
                 .Enter(Your_Password).In("#Passwd")
                 .Click("#signIn");
 
-            I.Wait(1);
+            I.Wait(2);
             I.Assert.Url(this._redirectUrl);
             I.Assert.Text("+小章").In(string.Format(s_linkContainer, this._personLink));
             I.Click("span.gb_6.gbii");
@@ -37,7 +39,7 @@ namespace Simple.SeleniumGmailTest
             //logout
             I.Click("#gb_71");
 
-            I.Wait(1);
+            I.Wait(2);
             I.Assert.Text(Your_Email).In("#reauthEmail");
         }
     }

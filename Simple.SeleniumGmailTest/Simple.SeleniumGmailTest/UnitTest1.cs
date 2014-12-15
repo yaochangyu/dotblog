@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Threading;
+using FluentAutomation.Wrappers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
@@ -19,7 +20,6 @@ namespace Simple.SeleniumGmailTest
         private string Your_Password = "";
         private string Your_Email = "";
 
-        private string Your_NickName = "+小章";
 
         [TestInitialize]
         public void SetupTest()
