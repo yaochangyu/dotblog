@@ -14,7 +14,7 @@ namespace Simple.SeleniumGmailTest
         private string _personLink = "https://plus.google.com/u/0/?tab=mX";
         private string Your_Account = "";
         private string Your_Password = "";
-        private string Your_NickName = "+小章";
+        private string Your_Email = "";
 
         public UnitTest2()
         {
@@ -22,7 +22,7 @@ namespace Simple.SeleniumGmailTest
         }
 
         [TestMethod]
-        public void TestMethod1()
+        public void TheLoginGmail_FluentAPI_Test()
         {
             I.Open(this._baseUrl)
                 .Enter(Your_Account).In("#Email")
@@ -31,14 +31,14 @@ namespace Simple.SeleniumGmailTest
 
             I.Wait(1);
             I.Assert.Url(this._redirectUrl);
-            I.Assert.Text(Your_NickName).In(string.Format(s_linkContainer, this._personLink));
+            I.Assert.Text("+小章").In(string.Format(s_linkContainer, this._personLink));
             I.Click("span.gb_6.gbii");
 
             //logout
             I.Click("#gb_71");
 
             I.Wait(1);
-            I.Assert.Text(Your_Account).In("#reauthEmail");
+            I.Assert.Text(Your_Email).In("#reauthEmail");
         }
     }
 }
