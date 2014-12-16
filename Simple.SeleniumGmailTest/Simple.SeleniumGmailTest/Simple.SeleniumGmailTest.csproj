@@ -70,11 +70,16 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="GmailLoginPage.cs" />
+    <Compile Include="GmailLogoutPage.cs" />
+    <Compile Include="GmailLogoutResultPage.cs" />
+    <Compile Include="GmailLoninResultPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTest1.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="UnitTest2.cs" />
+    <Compile Include="UnitTest3.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

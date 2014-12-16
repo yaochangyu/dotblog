@@ -1,7 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Threading;
-using FluentAutomation;
+﻿using FluentAutomation;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Simple.SeleniumGmailTest
 {
@@ -34,9 +32,9 @@ namespace Simple.SeleniumGmailTest
             I.Wait(2);
             I.Assert.Url(this._redirectUrl);
             I.Assert.Text("+小章").In(string.Format(s_linkContainer, this._personLink));
-            I.Click("span.gb_6.gbii");
 
             //logout
+            I.Click("span.gb_6.gbii");
             I.Click("#gb_71");
 
             I.Wait(2);

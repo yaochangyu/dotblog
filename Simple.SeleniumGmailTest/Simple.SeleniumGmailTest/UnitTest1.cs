@@ -1,10 +1,9 @@
-﻿using System;
-using System.Text;
-using System.Threading;
-using FluentAutomation.Wrappers;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
+using System;
+using System.Text;
+using System.Threading;
 
 namespace Simple.SeleniumGmailTest
 {
@@ -20,11 +19,9 @@ namespace Simple.SeleniumGmailTest
         private string Your_Password = "";
         private string Your_Email = "";
 
-
         [TestInitialize]
         public void SetupTest()
         {
-
             driver = new FirefoxDriver();
 
             baseURL = "https://gmail.google.com/";
@@ -72,6 +69,7 @@ namespace Simple.SeleniumGmailTest
             }
             Assert.AreEqual(Your_Email, driver.FindElement(By.Id("reauthEmail")).Text);
         }
+
         private bool IsElementPresent(By by)
         {
             try
