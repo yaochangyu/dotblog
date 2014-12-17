@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.ModelBindingSortAndPaging", "Simple.ModelBindingSortAndPaging\Simple.ModelBindingSortAndPaging.csproj", "{770C2D4F-3A23-4EAE-B1C8-AB9C77A2CBC9}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs15
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Simple.ModelBindingSortAndPaging\\Simple.ModelBindingSortAndPaging.csproj
+		SccProjectName1 = Simple.ModelBindingSortAndPaging
+		SccLocalPath1 = Simple.ModelBindingSortAndPaging
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{770C2D4F-3A23-4EAE-B1C8-AB9C77A2CBC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{770C2D4F-3A23-4EAE-B1C8-AB9C77A2CBC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{770C2D4F-3A23-4EAE-B1C8-AB9C77A2CBC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{770C2D4F-3A23-4EAE-B1C8-AB9C77A2CBC9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,13 +1,9 @@
-﻿using System;
+﻿using AutoMapper;
+using Simple.ModelBindingSortAndPaging.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data.Entity;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using AutoMapper;
-using Simple.ModelBindingSortAndPaging.Models;
 
 namespace Simple.ModelBindingSortAndPaging
 {
@@ -16,9 +12,9 @@ namespace Simple.ModelBindingSortAndPaging
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
-        ThreeLayerDbContext _db = new ThreeLayerDbContext();
+
+        private ThreeLayerDbContext _db = new ThreeLayerDbContext();
 
         public IQueryable<AccountViewModel> GetAllAccounts()
         {
@@ -45,8 +41,6 @@ namespace Simple.ModelBindingSortAndPaging
             query.Phone = account.Phone;
 
             this._db.SaveChanges();
-
-
         }
 
         public void DeleteAccount(AccountViewModel accountViewModel)
@@ -78,17 +72,11 @@ namespace Simple.ModelBindingSortAndPaging
             try
             {
                 this._db.SaveChanges();
-
             }
             catch (Exception ex)
             {
-
                 //throw;
             }
-
-
         }
-
-
     }
 }

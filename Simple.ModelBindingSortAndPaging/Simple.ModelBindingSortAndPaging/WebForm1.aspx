@@ -37,7 +37,7 @@
                     <asp:DynamicField DataField="Password" />--%>
                     <%--<asp:TemplateField HeaderText="Total Credits">
                         <ItemTemplate>
-                            <asp:Label ID="Label1" Text="<%# Item.UserId %>" runat="server" />
+                            <asp:Label ID="Label1" Text="<%# Item. %>" runat="server" />
                         </ItemTemplate>
                     </asp:TemplateField>--%>
                 </Columns>
