@@ -76,6 +76,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="NewAccount.aspx" />
+    <Content Include="NewAccountViewModel.aspx" />
     <Content Include="packages.config" />
     <Content Include="WebForm1.aspx" />
     <Content Include="WebForm2.aspx" />
@@ -100,6 +102,20 @@
     <Compile Include="Models\AccountViewModel.cs" />
     <Compile Include="Models\ThreeLayerCreateDatabaseIfNotExists.cs" />
     <Compile Include="Models\ThreeLayerDbContext.cs" />
+    <Compile Include="NewAccount.aspx.cs">
+      <DependentUpon>NewAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewAccount.aspx.designer.cs">
+      <DependentUpon>NewAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewAccountViewModel.aspx.cs">
+      <DependentUpon>NewAccountViewModel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewAccountViewModel.aspx.designer.cs">
+      <DependentUpon>NewAccountViewModel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>

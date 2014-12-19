@@ -23,7 +23,7 @@ namespace Simple.ModelBindingSortAndPaging.Models
         [Required]
         [StringLength(100)]
         public string Password { get; set; }
-
+        [Display(Name = "歲月~")]
         public int Age { get; set; }
 
         public string Phone { get; set; }

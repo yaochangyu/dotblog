@@ -166,25 +166,7 @@ namespace Simple.ModelBindingSortAndPaging
             this._db.SaveChanges();
         }
 
-        public void InsertAccount(AccountViewModel accountViewModel)
-        {
-            if (!ModelState.IsValid)
-            {
-                return;
-            }
 
-            var account = Mapper.Map<Account>(accountViewModel);
-
-            this._db.Accounts.Add(account);
-            try
-            {
-                this._db.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
 
         protected void Button1_Click(object sender, EventArgs e)
         {

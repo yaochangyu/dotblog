@@ -51,17 +51,6 @@ namespace Simple.ModelBindingSortAndPaging
             this._db.SaveChanges();
         }
 
-        public void InsertAccount(Account account)
-        {
-            if (!ModelState.IsValid)
-            {
-                return;
-            }
 
-            this._db.Accounts.Add(account);
-
-            this._db.SaveChanges();
-            this.Server.Transfer("/WebForm2.aspx");
-        }
     }
 }
