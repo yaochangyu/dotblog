@@ -176,7 +176,6 @@ namespace Simple.ModelBindingSortAndPaging
             var account = Mapper.Map<Account>(accountViewModel);
 
             this._db.Accounts.Add(account);
-            account.Password = "亂數產生";
             try
             {
                 this._db.SaveChanges();

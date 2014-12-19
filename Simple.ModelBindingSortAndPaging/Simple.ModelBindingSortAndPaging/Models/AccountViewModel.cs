@@ -13,6 +13,7 @@ namespace Simple.ModelBindingSortAndPaging.Models
         public string 電話 { get; set; }
 
         public string 外號 { get; set; }
+        public string 密碼 { get; set; }
 
 
     }

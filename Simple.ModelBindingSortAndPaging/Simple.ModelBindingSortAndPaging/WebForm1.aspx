@@ -20,7 +20,7 @@
 
         <asp:DynamicValidator runat="server" ID="DynamicValidator1"
             ControlToValidate="GridView1" Display="Static" />
-
+        <asp:HyperLink ID="HyperLink1" Text="Add New Author..." NavigateUrl="DetailsViewInsert_vb.aspx" runat="server" />
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"
             ItemType="Simple.ModelBindingSortAndPaging.Models.AccountViewModel"
             UpdateMethod="UpdateAccount"
@@ -34,6 +34,7 @@
             GridLines="None"
             PageSize="3">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+
             <Columns>
                 <asp:CommandField ShowEditButton="True" ButtonType="Button">
                     <ControlStyle Width="75px" />
@@ -46,10 +47,10 @@
                 <asp:BoundField DataField="年齡"></asp:BoundField>
                 <asp:TemplateField HeaderText="外號" SortExpression="外號">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox2" Text='<%# BindItem.外號 %>' runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TextBox2" Text="<%# BindItem.外號 %>" runat="server"></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label2" runat="server" Text='<%# Item.外號 %>'></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text="<%# Item.外號 %>"></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
 
@@ -71,12 +72,43 @@
             <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Left" />
             <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+
             <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
             <SortedAscendingCellStyle BackColor="#E9E7E2" />
             <SortedAscendingHeaderStyle BackColor="#506C8C" />
             <SortedDescendingCellStyle BackColor="#FFFDF8" />
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
+        <br />
+        <asp:DetailsView ID="DetailsView1" runat="server" Height="80px" Width="250px"
+            ItemType="Simple.ModelBindingSortAndPaging.Models.AccountViewModel"
+            DefaultMode="Insert"
+            InsertMethod="InsertAccount"
+            GridLines="None"
+            CellPadding="6"
+            AutoGenerateRows="False">
+
+            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Left" />
+            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+            <Fields>
+                <%-- <asp:TemplateField HeaderText="帳號">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox2" Text='<%# BindItem.帳號 %>' Width="100%" runat="server"></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Item.帳號 %>' Width="100%"></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>--%>
+                <asp:DynamicField DataField="帳號" />
+                <asp:DynamicField DataField="密碼" />
+                <asp:DynamicField DataField="電話" />
+                <asp:DynamicField DataField="年齡" />
+                <asp:DynamicField DataField="外號" />
+                <asp:CommandField ShowInsertButton="True" ShowCancelButton="False" ButtonType="Button" />
+            </Fields>
+        </asp:DetailsView>
     </form>
 </body>
 </html>
