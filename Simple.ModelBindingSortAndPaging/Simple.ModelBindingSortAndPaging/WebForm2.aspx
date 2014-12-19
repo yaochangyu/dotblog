@@ -8,13 +8,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:ValidationSummary ID="ValidationSummary1" runat="server"
+        <%-- <asp:ValidationSummary ID="ValidationSummary1" runat="server"
             ShowModelStateErrors="true"
             HeaderText="List of validation errors"
             Font-Bold="True" ForeColor="#FF3300" />
 
         <asp:DynamicValidator runat="server" ID="DynamicValidator1"
-            ControlToValidate="GridView1" Display="Static" />
+            ControlToValidate="GridView1" Display="Static" />--%>
 
         <div>
             <asp:GridView ID="GridView1" runat="server"
