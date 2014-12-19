@@ -8,6 +8,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:ValidationSummary ID="ValidationSummary1" runat="server"
+            ShowModelStateErrors="true"
+            HeaderText="List of validation errors"
+            Font-Bold="True" ForeColor="#FF3300" />
+
+        <asp:DynamicValidator runat="server" ID="DynamicValidator1"
+            ControlToValidate="GridView1" Display="Static" />
+
         <div>
             <asp:GridView ID="GridView1" runat="server"
                 SelectMethod="GetAllAccounts"
@@ -19,7 +27,23 @@
                 AllowPaging="True"
                 AllowSorting="True"
                 DataKeyNames="UserId"
-                PageSize="2">
+                AutoGenerateColumns="True"
+                GridLines="None"
+                ForeColor="#333333"
+                CellPadding="6"
+                PageSize="3">
+                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Left" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
             <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="125px"
                 ItemType="Simple.ModelBindingSortAndPaging.Models.Account"

@@ -10,8 +10,15 @@ namespace Simple.ModelBindingSortAndPaging
         {
         }
 
-        private ThreeLayerDbContext _db = new ThreeLayerDbContext();
+        private ThreeLayerDbContext _db = null;
 
+        public WebForm2()
+        {
+            if (this._db == null)
+            {
+                _db = new ThreeLayerDbContext();
+            }
+        }
         public IQueryable<Account> GetAllAccounts()
         {
             var accounts = this._db.Accounts;

@@ -6,13 +6,9 @@ namespace Simple.ModelBindingSortAndPaging.Models
 {
     public class ThreeLayerCreateDatabaseIfNotExists : CreateDatabaseIfNotExists<ThreeLayerDbContext>
     {
-        public override void InitializeDatabase(ThreeLayerDbContext context)
+        protected override void Seed(ThreeLayerDbContext context)
         {
-            base.InitializeDatabase(context);
-            if (context.Database.Exists())
-            {
-                return;
-            }
+            base.Seed(context);
             Account account1 = new Account() { UserId = "yao1", Age = 19, Phone = "8825251", NickName = "小狗1", Password = "1234" };
             Account account2 = new Account() { UserId = "yao2", Age = 26, Phone = "8825252", NickName = "小狗2", Password = RandomPassword() };
             Account account3 = new Account() { UserId = "yao3", Age = 16, Phone = "8825253", NickName = "小狗3", Password = RandomPassword() };
