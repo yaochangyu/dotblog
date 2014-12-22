@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.SpecflowHelloWorld", "Simple.SpecflowHelloWorld\Simple.SpecflowHelloWorld.csproj", "{DA258789-92FC-4AF2-A82B-6B87FC0A4A10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.MyUtility", "Simple.MyUtility\Simple.MyUtility.csproj", "{5013A145-E863-4348-B638-C8904C4C9881}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs15
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Simple.MyUtility\\Simple.MyUtility.csproj
+		SccProjectName1 = Simple.MyUtility
+		SccLocalPath1 = Simple.MyUtility
+		SccProjectUniqueName2 = Simple.SpecflowHelloWorld\\Simple.SpecflowHelloWorld.csproj
+		SccProjectName2 = Simple.SpecflowHelloWorld
+		SccLocalPath2 = Simple.SpecflowHelloWorld
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA258789-92FC-4AF2-A82B-6B87FC0A4A10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA258789-92FC-4AF2-A82B-6B87FC0A4A10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA258789-92FC-4AF2-A82B-6B87FC0A4A10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA258789-92FC-4AF2-A82B-6B87FC0A4A10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5013A145-E863-4348-B638-C8904C4C9881}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5013A145-E863-4348-B638-C8904C4C9881}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5013A145-E863-4348-B638-C8904C4C9881}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5013A145-E863-4348-B638-C8904C4C9881}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
