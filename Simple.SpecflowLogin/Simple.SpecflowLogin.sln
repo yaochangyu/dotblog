@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.SpecflowLogin", "Simple.SpecflowLogin\Simple.SpecflowLogin.csproj", "{FA04D943-8D70-4EEE-A91F-2C39DB9DF936}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.Utility", "Simple.Utility\Simple.Utility.csproj", "{3F3B95D9-3AF6-4D01-AC5D-303E81C257EF}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs15
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Simple.SpecflowLogin\\Simple.SpecflowLogin.csproj
+		SccProjectName1 = Simple.SpecflowLogin
+		SccLocalPath1 = Simple.SpecflowLogin
+		SccProjectUniqueName2 = Simple.Utility\\Simple.Utility.csproj
+		SccProjectName2 = Simple.Utility
+		SccLocalPath2 = Simple.Utility
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA04D943-8D70-4EEE-A91F-2C39DB9DF936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA04D943-8D70-4EEE-A91F-2C39DB9DF936}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA04D943-8D70-4EEE-A91F-2C39DB9DF936}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA04D943-8D70-4EEE-A91F-2C39DB9DF936}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F3B95D9-3AF6-4D01-AC5D-303E81C257EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F3B95D9-3AF6-4D01-AC5D-303E81C257EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F3B95D9-3AF6-4D01-AC5D-303E81C257EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F3B95D9-3AF6-4D01-AC5D-303E81C257EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
