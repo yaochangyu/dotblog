@@ -5,10 +5,10 @@
 
 @mytag
 Scenario Outline: authentication
-	Given 我輸入 <UserId>,<Password>
+	Given 我輸入 <UserId>/<Password>
 	When 我按下Login
 	Then 結果應為 <Result>
 	Examples: 
-	| UserId | Password | Result |
-	| yao    | 1234     | true   |
-	| jordan | 5566     | false  |  
+	| Result |
+	| true   |
+	| false  |  

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Simple.Utility;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -13,18 +9,18 @@ namespace Simple.SpecflowLogin
     public class LoginSteps
     {
         private Security _security = null;
+
         [BeforeScenario()]
         public void Before()
         {
             this._security = new Security();
         }
-
-        [Given(@"我輸入 (.*),(.*)")]
-        public void Given我輸入(string userId, string password)
+        [Given(@"我輸入")]
+        public void Given我輸入(Table inputTable)
         {
-            ScenarioContext.Current.Set<string>(userId, "userId");
-            ScenarioContext.Current.Set<string>(password, "password");
+            var account = inputTable.CreateSet<Account>();
         }
+
 
         [When(@"我按下Login")]
         public void When我按下Login()
@@ -33,17 +29,16 @@ namespace Simple.SpecflowLogin
             var password = ScenarioContext.Current.Get<string>("password");
             var actual = this._security.IsVerify(userId, password);
             ScenarioContext.Current.Set<bool>(actual, "actual");
-
         }
 
-        [Then(@"結果應為 (.*)")]
+        [Then(@"結果應為")]
         public void Then結果應為(bool expected)
         {
             var actual = ScenarioContext.Current.Get<bool>("actual");
             Assert.AreEqual(expected, actual);
         }
 
-
+        //不建議的寫法，不應該用for去驗証，而應該使用specflow
         //[Given(@"我輸入")]
         //public void Given我輸入(Table table)
         //{
@@ -74,6 +69,5 @@ namespace Simple.SpecflowLogin
         //    var result = ((IEnumerable)ScenarioContext.Current["actual"]).Cast<bool>();
 
         //}
-
     }
 }
