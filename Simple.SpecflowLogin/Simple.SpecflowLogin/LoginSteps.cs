@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Simple.Utility;
 using TechTalk.SpecFlow;
-using TechTalk.SpecFlow.Assist;
 
 namespace Simple.SpecflowLogin
 {
@@ -15,23 +14,23 @@ namespace Simple.SpecflowLogin
         {
             this._security = new Security();
         }
-        [Given(@"我輸入")]
-        public void Given我輸入(Table inputTable)
-        {
-            var account = inputTable.CreateSet<Account>();
-        }
 
+        [Given(@"我輸入 (.*),(.*)")]
+        public void Given我輸入(string userId, string password)
+        {
+            var account = new Account() { UserId = userId, Password = password };
+            ScenarioContext.Current.Set(account, "account");
+        }
 
         [When(@"我按下Login")]
         public void When我按下Login()
         {
-            var userId = ScenarioContext.Current.Get<string>("userId");
-            var password = ScenarioContext.Current.Get<string>("password");
-            var actual = this._security.IsVerify(userId, password);
+            var account = ScenarioContext.Current.Get<Account>("account");
+            var actual = this._security.IsVerify(account.UserId, account.Password);
             ScenarioContext.Current.Set<bool>(actual, "actual");
         }
 
-        [Then(@"結果應為")]
+        [Then(@"結果應為 (.*)")]
         public void Then結果應為(bool expected)
         {
             var actual = ScenarioContext.Current.Get<bool>("actual");

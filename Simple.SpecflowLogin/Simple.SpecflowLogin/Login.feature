@@ -1,14 +1,16 @@
-﻿Feature: 單一登入
-	In 不同的應用程式用同一個憑證
+﻿Feature: SSO
+	In 不同的應用程式用同一個驗証機制(Token)
 	As 適用Web/App
-	I 使用者登入過後，在限定時間內不需要再輸入一次密碼
+	I Want 使用者登入過後，在限定時間內不需要再輸入密碼
 
 @mytag
 Scenario Outline: authentication
-	Given 我輸入 <UserId>/<Password>
+	Given 我輸入 <UserId>,<Password>
 	When 我按下Login
 	Then 結果應為 <Result>
 	Examples: 
-	| Result |
-	| true   |
-	| false  |  
+	| UserId | Password | Result |
+	| kobe   | 12234    | false  |
+	| yao    | 1234     | true   |
+	| jordan | 5566     | false  |    
+
