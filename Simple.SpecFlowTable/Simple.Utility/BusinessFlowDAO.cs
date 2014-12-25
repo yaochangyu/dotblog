@@ -50,7 +50,11 @@ namespace Simple.Utility
 
             public Product Update(Product product)
             {
-                var query = this._db.Products.FirstOrDefault(p => p.ProductName == p.ProductName);
+                var query = this._db.Products.FirstOrDefault(p => p.ProductID == p.ProductID);
+                if (query == null)
+                {
+                    return null;
+                }
                 this._db.Entry(query).CurrentValues.SetValues(product);
                 return query;
             }
