@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.RadGridPaging", "Simple.RadGridPaging\Simple.RadGridPaging.csproj", "{3BECB183-CD48-461E-9F59-C9DFA9108DB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{D2DC4DF1-E262-4461-935F-B77E98A3454C}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs15
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Simple.RadGridPaging\\Simple.RadGridPaging.csproj
+		SccProjectName1 = Simple.RadGridPaging
+		SccLocalPath1 = Simple.RadGridPaging
+		SccProjectUniqueName2 = UnitTestProject1\\UnitTestProject1.csproj
+		SccProjectName2 = UnitTestProject1
+		SccLocalPath2 = UnitTestProject1
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3BECB183-CD48-461E-9F59-C9DFA9108DB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BECB183-CD48-461E-9F59-C9DFA9108DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BECB183-CD48-461E-9F59-C9DFA9108DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BECB183-CD48-461E-9F59-C9DFA9108DB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2DC4DF1-E262-4461-935F-B77E98A3454C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2DC4DF1-E262-4461-935F-B77E98A3454C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2DC4DF1-E262-4461-935F-B77E98A3454C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2DC4DF1-E262-4461-935F-B77E98A3454C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(CodealikeProperties) = postSolution
+		SolutionGuid = a960046b-2736-46b6-8088-5e6e0c437f15
+	EndGlobalSection
+EndGlobal
