@@ -1,11 +1,9 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Simple.RadGridPaging;
 using System.Linq.Dynamic;
+
 namespace UnitTestProject1
 {
     [TestClass]
@@ -28,10 +26,10 @@ namespace UnitTestProject1
             List<Order> result = new List<Order>();
             result.Add(new Order() { OrderDate = new DateTime(1922, 02, 11), RequiredDate = new DateTime(1933, 10, 22) });
             return result;
-
         }
 
         public DateTime OrderDate { get; set; }
+
         public DateTime RequiredDate { get; set; }
     }
 }

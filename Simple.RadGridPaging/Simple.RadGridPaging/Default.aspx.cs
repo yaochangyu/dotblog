@@ -1,28 +1,18 @@
-﻿using System;
+﻿using Simple.RadGridPaging.Models;
+using System;
 using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Linq;
-using System.Data;
-using System.Configuration;
 using System.Data.Entity;
+using System.Linq;
 using System.Linq.Dynamic;
 using System.Text;
-using System.Web.Security;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-using Simple.RadGridPaging.Models;
+using System.Web.UI;
 using Telerik.Web.UI;
-//using System.Linq.Dynamic;
-using Simple.RadGridPaging.Simple.RadGridSortAndPaging;
-
 
 public partial class Default : System.Web.UI.Page
 {
     private NorthwindDbContext _db = null;
 
-    static string[] chars = new[] { "DateTime.Parse(\"", "\")" };
+    private static string[] chars = new[] { "DateTime.Parse(\"", "\")" };
 
     public Default()
     {
@@ -31,10 +21,11 @@ public partial class Default : System.Web.UI.Page
             this._db = new NorthwindDbContext();
         }
     }
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
     }
+
     protected void RadGrid1_NeedDataSource(object sender, GridNeedDataSourceEventArgs e)
     {
         if (!e.IsFromDetailTable)
@@ -82,9 +73,9 @@ public partial class Default : System.Web.UI.Page
             .AsNoTracking()
             .ToList();
 
-
         return result;
     }
+
     private static string GetNewDateExpression(string predicate)
     {
         var split = predicate.Split(chars, StringSplitOptions.RemoveEmptyEntries);
@@ -116,9 +107,8 @@ public partial class Default : System.Web.UI.Page
         return predicate;
     }
 
+    private string[] _dateFields = new string[] { "RequiredDate", "OrderDate", "ShippedDate" };
 
-
-    string[] _dateFields = new string[] { "RequiredDate", "OrderDate", "ShippedDate" };
     protected void RadGrid1_ItemCommand(object source, Telerik.Web.UI.GridCommandEventArgs e)
     {
         var pair = (Pair)e.CommandArgument;
@@ -160,49 +150,57 @@ public partial class Default : System.Web.UI.Page
                     filterPattern = string.Format("({0} = {1})", fieldName, filterPattern);
                     dateColumn.CurrentFilterFunction = GridKnownFunction.EqualTo;
                     break;
+
                 case "NotEqualTo":
                     filterPattern = string.Format("({0} <> {1})", fieldName, filterPattern);
                     //filterPattern = "Not [RequiredDate] = '" + filterPattern + "'";
                     dateColumn.CurrentFilterFunction = GridKnownFunction.NotEqualTo;
                     break;
+
                 case "GreaterThan":
                     filterPattern = string.Format("({0} > {1})", fieldName, filterPattern);
 
                     //filterPattern = "[RequiredDate] > '" + filterPattern + "'";
                     dateColumn.CurrentFilterFunction = GridKnownFunction.GreaterThan;
                     break;
+
                 case "LessThan":
                     filterPattern = string.Format("({0} < {1})", fieldName, filterPattern);
                     //filterPattern = "[RequiredDate] < '" + filterPattern + "'";
                     dateColumn.CurrentFilterFunction = GridKnownFunction.LessThan;
                     break;
+
                 case "GreaterThanOrEqualTo":
                     filterPattern = string.Format("({0} >= {1})", fieldName, filterPattern);
                     //filterPattern = "[RequiredDate] >= '" + filterPattern + "'";
                     dateColumn.CurrentFilterFunction = GridKnownFunction.GreaterThanOrEqualTo;
                     break;
+
                 case "LessThanOrEqualTo":
                     filterPattern = string.Format("({0} <= {1})", fieldName, filterPattern);
                     //filterPattern = "[RequiredDate] <= '" + filterPattern + "'";
                     dateColumn.CurrentFilterFunction = GridKnownFunction.LessThanOrEqualTo;
                     break;
+
                 case "Between":
                     filterPattern = "'" + filterPattern + "' <= [RequiredDate] AND [RequiredDate] <= '" + filterPatternAssist + "'";
                     dateColumn.CurrentFilterFunction = GridKnownFunction.Between;
                     break;
+
                 case "NotBetween":
                     filterPattern = "[RequiredDate] <= '" + filterPattern + "' OR [RequiredDate] >= '" + filterPatternAssist + "'";
                     dateColumn.CurrentFilterFunction = GridKnownFunction.NotBetween;
                     break;
+
                 case "IsNull":
                     break;
+
                 case "NotIsNull":
                     break;
             }
 
             if (Visible)
             {
-
             }
             Session["filterPattern"] = filterPattern;
             //dateColumn.CurrentFilterValue = dd.ToString();

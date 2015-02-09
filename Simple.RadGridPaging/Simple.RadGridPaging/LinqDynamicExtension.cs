@@ -16,7 +16,6 @@
 
 //        public static IQueryable<T> Where<T>(this IQueryable<T> source, string predicate, params object[] values)
 //        {
-
 //            return (IQueryable<T>)Where((IQueryable)source, predicate, values);
 //        }
 
@@ -227,7 +226,6 @@
 
 //        public static LambdaExpression ParseLambda(ParameterExpression[] parameters, Type resultType, string expression, params object[] values)
 //        {
-
 //            ExpressionParser parser = new ExpressionParser(parameters, expression, values);
 //            return Expression.Lambda(parser.Parse(resultType), parameters);
 //        }
