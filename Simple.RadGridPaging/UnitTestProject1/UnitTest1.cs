@@ -33,11 +33,13 @@ namespace UnitTestProject1
                 new Employee() { EmployeeID = 3, LastName = "蔡", FirstName = "比巴" },
             }.AsQueryable();
 
-            var mockDbSet = Substitute.For<IDbSet<Employee>, DbSet<Employee>>();
-            mockDbSet.Provider.Returns(data.Provider);
-            mockDbSet.Expression.Returns(data.Expression);
-            mockDbSet.ElementType.Returns(data.ElementType);
-            mockDbSet.GetEnumerator().Returns(data.GetEnumerator());
+            //var mockDbSet = Substitute.For<IDbSet<Employee>, DbSet<Employee>>();
+            //mockDbSet.Provider.Returns(data.Provider);
+            //mockDbSet.Expression.Returns(data.Expression);
+            //mockDbSet.ElementType.Returns(data.ElementType);
+            //mockDbSet.GetEnumerator().Returns(data.GetEnumerator());
+
+            var mockDbSet = Substitute.For<IDbSet<Employee>, DbSet<Employee>>().Initialize(data);
 
             var mockDbContext = Substitute.For<NorthwindDbContext>();
             mockDbContext.Employees.Returns(mockDbSet);
