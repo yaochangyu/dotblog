@@ -34,15 +34,16 @@ namespace UnitTestProject1
 
             var dynamicProperty = new DynamicProperty<FactProductInventory>();
             var reflectionProperty = new ReflectionProperty<FactProductInventory>();
-
             var test1 = new TestInfo(() =>
             {
-                foreach (var propertyName in s_propertyNames)
-                {
-                    var field = propertyName.Key;
-                    var value = dynamicProperty.GetValue(expected, field);
-                }
-            }, "動態屬性,GetValue");
+                var dateKey = expected.DateKey;
+                var movementDate = expected.MovementDate;
+                var productKey = expected.ProductKey;
+                var unitCost = expected.UnitCost;
+                var unitsBalance = expected.UnitsBalance;
+                var unitsIn = expected.UnitsIn;
+                var unitsOut = expected.UnitsOut;
+            }, "直接指定,GetValue");
             test1.Run(runTimes);
 
             var test2 = new TestInfo(() =>
@@ -50,13 +51,24 @@ namespace UnitTestProject1
                 foreach (var propertyName in s_propertyNames)
                 {
                     var field = propertyName.Key;
+                    var value = dynamicProperty.GetValue(expected, field);
+                }
+            }, "Expression反射,GetValue");
+            test2.Run(runTimes);
+
+            var test3 = new TestInfo(() =>
+            {
+                foreach (var propertyName in s_propertyNames)
+                {
+                    var field = propertyName.Key;
                     var value = reflectionProperty.GetValue(expected, field);
                 }
-            }, "一般反射,GetValue");
-            test2.Run(runTimes);
+            }, "Reflection反射,GetValue");
+            test3.Run(runTimes);
 
             Assert.AreEqual(test1.RunCount, runTimes);
             Assert.AreEqual(test2.RunCount, runTimes);
+            Assert.AreEqual(test3.RunCount, runTimes);
         }
 
         [TestMethod]
@@ -70,16 +82,30 @@ namespace UnitTestProject1
             var test1 = new TestInfo(() =>
             {
                 var inventory = new FactProductInventory();
+
+                inventory.DateKey = 1;
+                inventory.MovementDate = DateTime.Now;
+                inventory.ProductKey = 1;
+                inventory.UnitCost = 2.1m;
+                inventory.UnitsBalance = 2;
+                inventory.UnitsIn = 2;
+                inventory.UnitsOut = 2;
+            }, "直接指定,SetValue");
+            test1.Run(runTimes);
+
+            var test2 = new TestInfo(() =>
+            {
+                var inventory = new FactProductInventory();
                 foreach (var propertyName in s_propertyNames)
                 {
                     var field = propertyName.Key;
                     var value = propertyName.Value;
                     dynamicProperty.SetValue(inventory, field, value);
                 }
-            }, "動態屬性,SetValue");
-            test1.Run(runTimes);
+            }, "Expression反射,SetValue");
+            test2.Run(runTimes);
 
-            var test2 = new TestInfo(() =>
+            var test3 = new TestInfo(() =>
             {
                 var inventory = new FactProductInventory();
 
@@ -89,11 +115,12 @@ namespace UnitTestProject1
                     var value = propertyName.Value;
                     reflectionProperty.SetValue(inventory, field, value);
                 }
-            }, "一般反射,SetValue");
-            test2.Run(runTimes);
+            }, "Reflection反射,SetValue");
+            test3.Run(runTimes);
 
             Assert.AreEqual(test1.RunCount, runTimes);
             Assert.AreEqual(test2.RunCount, runTimes);
+            Assert.AreEqual(test3.RunCount, runTimes);
         }
 
         [TestMethod]
@@ -108,16 +135,29 @@ namespace UnitTestProject1
             var test1 = new TestInfo(() =>
             {
                 var inventory = new FactProductInventory();
+                inventory.DateKey = expected.DateKey;
+                inventory.MovementDate = expected.MovementDate;
+                inventory.ProductKey = expected.ProductKey;
+                inventory.UnitCost = expected.UnitCost;
+                inventory.UnitsBalance = expected.UnitsBalance;
+                inventory.UnitsIn = expected.UnitsIn;
+                inventory.UnitsOut = expected.UnitsOut;
+            }, "直接指定,GetAndSetValue");
+            test1.Run(runTimes);
+
+            var test2 = new TestInfo(() =>
+            {
+                var inventory = new FactProductInventory();
                 foreach (var propertyName in s_propertyNames)
                 {
                     var field = propertyName.Key;
                     var value = dynamicProperty.GetValue(expected, field);
                     dynamicProperty.SetValue(inventory, field, value);
                 }
-            }, "動態屬性,GetAndSetValue");
-            test1.Run(runTimes);
+            }, "Expression反射,GetAndSetValue");
+            test2.Run(runTimes);
 
-            var test2 = new TestInfo(() =>
+            var test3 = new TestInfo(() =>
             {
                 var inventory = new FactProductInventory();
 
@@ -127,11 +167,12 @@ namespace UnitTestProject1
                     var value = reflectionProperty.GetValue(expected, field);
                     reflectionProperty.SetValue(inventory, field, value);
                 }
-            }, "一般反射,GetAndSetValue");
-            test2.Run(runTimes);
+            }, "Reflection反射,GetAndSetValue");
+            test3.Run(runTimes);
 
             Assert.AreEqual(test1.RunCount, runTimes);
             Assert.AreEqual(test2.RunCount, runTimes);
+            Assert.AreEqual(test3.RunCount, runTimes);
         }
     }
 
