@@ -57,7 +57,7 @@ namespace Simple.ORM.BatchUpdate
             {
                 var datas = ZZZProject.Update(Core.s_rowCount);
                 return ZZZProject;
-            }, "ZP Update");
+            }, "ZProject".PadRight(13, ' ') + "Update");
             tset.Run(Core.s_runTimes);
 
             s_testInfos.Add(tset);
@@ -72,7 +72,22 @@ namespace Simple.ORM.BatchUpdate
             {
                 var datas = EF6.Update(Core.s_rowCount);
                 return EF6;
-            }, "EF Update");
+            }, "EF".PadRight(16, ' ') + "Update");
+            test1.Run(Core.s_runTimes);
+
+            s_testInfos.Add(test1);
+        }
+
+        [TestMethod]
+        public void Dapper_Update_Test()
+        {
+            IAccess dapper = new DapperAccess();
+
+            var test1 = new TestInfo(() =>
+            {
+                var datas = dapper.Update(Core.s_rowCount);
+                return dapper;
+            }, "Dapper".PadRight(12, ' ') + "Update");
             test1.Run(Core.s_runTimes);
 
             s_testInfos.Add(test1);

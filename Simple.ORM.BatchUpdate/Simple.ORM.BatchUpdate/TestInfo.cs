@@ -9,7 +9,7 @@ namespace Simple.ORM.BatchUpdate
 
         public string FunctionName { get; set; }
 
-        public int RowCount { get; set; }
+        public int TotalRowCount { get; set; }
 
         public int RunTimes { get; set; }
 
@@ -34,7 +34,7 @@ namespace Simple.ORM.BatchUpdate
                 watch.Stop();
 
                 this.RunTimes++;
-                this.RowCount += dao.RowCount;
+                this.TotalRowCount += dao.RowCount;
                 this.CostTime += watch.Elapsed.TotalMilliseconds;
 
                 var msg = string.Format("第 {0} 次執行 {1} 測試，花費：{2} ms，成功筆數：{3}",
@@ -44,8 +44,11 @@ namespace Simple.ORM.BatchUpdate
                     dao.RowCount);
                 Console.WriteLine(msg);
             }
-            this.Message = String.Format("執行 {0} 測試，共花費：{1} ms，共執行 {2} 次，總成功筆數：{3}", this.FunctionName, this.CostTime,
-                this.RunTimes, this.RowCount);
+            this.Message = String.Format("執行 {0} 測試，共花費：{1} ms，共執行 {2} 次，總成功筆數：{3}",
+                this.FunctionName,
+                this.CostTime.ToString("0000.0000"),
+                this.RunTimes,
+                this.TotalRowCount);
             //Console.WriteLine(this.Message);
 
             //return watch.Elapsed;

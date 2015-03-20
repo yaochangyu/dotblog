@@ -54,14 +54,14 @@ namespace Simple.ORM.BatchUpdate
             }
         }
 
-        [TestMethod]
-        public void Delete_Test()
-        {
-            var watch = Stopwatch.StartNew();
-            Delete();
-            watch.Stop();
-            Console.WriteLine("Detete Table cost time:{0} ms", watch.Elapsed.TotalMilliseconds);
-        }
+        //[TestMethod]
+        //public void Delete_Test()
+        //{
+        //    var watch = Stopwatch.StartNew();
+        //    Delete();
+        //    watch.Stop();
+        //    Console.WriteLine("Detete Table cost time:{0} ms", watch.Elapsed.TotalMilliseconds);
+        //}
 
         [TestMethod]
         public void EF6_Delete_Test()
@@ -72,7 +72,7 @@ namespace Simple.ORM.BatchUpdate
             {
                 var datas = EF6.Delete(Core.s_rowCount);
                 return EF6;
-            }, "EF Delete");
+            }, "EF".PadRight(16, ' ') + "Delete");
             test1.Run(Core.s_runTimes);
 
             s_testInfos.Add(test1);
@@ -87,10 +87,25 @@ namespace Simple.ORM.BatchUpdate
             {
                 var datas = ZZZProject.Delete(Core.s_rowCount);
                 return ZZZProject;
-            }, "ZP Delete");
+            }, "ZProject".PadRight(13, ' ') + "Delete");
             tset.Run(Core.s_runTimes);
 
             s_testInfos.Add(tset);
+        }
+
+        [TestMethod]
+        public void Dapper_Delete_Test()
+        {
+            IAccess dapper = new DapperAccess();
+
+            var test1 = new TestInfo(() =>
+            {
+                var datas = dapper.Delete(Core.s_rowCount);
+                return dapper;
+            }, "Dapper".PadRight(12, ' ') + "Delete");
+            test1.Run(Core.s_runTimes);
+
+            s_testInfos.Add(test1);
         }
 
         [TestMethod]

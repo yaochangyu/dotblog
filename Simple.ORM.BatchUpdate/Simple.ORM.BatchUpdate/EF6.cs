@@ -123,10 +123,10 @@ namespace Simple.ORM.BatchUpdate
                     target.MovementDate = DateTime.Now;
                 }
 
-                foreach (var item in targets)
-                {
-                    targetDbContext.Entry(item).State = EntityState.Modified;
-                }
+                //foreach (var item in targets)
+                //{
+                //    targetDbContext.Entry(item).State = EntityState.Modified;
+                //}
 
                 try
                 {

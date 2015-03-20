@@ -53,7 +53,6 @@ namespace Simple.ORM.BatchUpdate
 
         public int Delete(int? rowCount = null)
         {
-            using (var tranScope = new TransactionScope())
             using (var targetDbContext = new TargetDbContext())
             {
                 targetDbContext.Configuration.AutoDetectChangesEnabled = false;
@@ -79,7 +78,6 @@ namespace Simple.ORM.BatchUpdate
                         .ToList();
                 }
                 targetDbContext.BulkDelete(targets);
-                tranScope.Complete();
                 this.RowCount = targets.Count;
                 return this.RowCount;
             }

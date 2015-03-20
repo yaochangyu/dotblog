@@ -8,7 +8,7 @@ namespace Simple.ORM.BatchUpdate
 {
     internal class Core
     {
-        internal static int s_runTimes = 10;
-        internal static int? s_rowCount = 100;
+        internal static int s_runTimes = 1;
+        internal static int? s_rowCount = 1000;
     }
 }
