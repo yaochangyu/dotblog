@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Simple.ORM.InsertBigRow
+namespace Simple.ORM.BatchUpdate
 {
     [TestClass]
     public class UpdateUnitTest
@@ -67,21 +67,6 @@ namespace Simple.ORM.InsertBigRow
         public void EF6_Update_Test()
         {
             IAccess EF6 = new EF6();
-
-            var test1 = new TestInfo(() =>
-            {
-                var datas = EF6.Update(Core.s_rowCount);
-                return EF6;
-            }, "EF Update");
-            test1.Run(Core.s_runTimes);
-
-            s_testInfos.Add(test1);
-        }
-
-        [TestMethod]
-        public void EF6Extend_Update_Test()
-        {
-            IAccess EF6 = new EF6Extended();
 
             var test1 = new TestInfo(() =>
             {

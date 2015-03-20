@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace Simple.ORM.InsertBigRow
+namespace Simple.ORM.BatchUpdate
 {
     public class TestInfo
     {

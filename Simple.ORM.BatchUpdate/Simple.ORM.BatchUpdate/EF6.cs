@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 
-namespace Simple.ORM.InsertBigRow
+namespace Simple.ORM.BatchUpdate
 {
     public class EF6 : IAccess
     {
@@ -100,27 +100,28 @@ namespace Simple.ORM.InsertBigRow
                         .AsNoTracking()
                         .ToList();
                 }
-                var random = new Random(Guid.NewGuid().GetHashCode());
-                var randomInts = new List<int>(Enumerable.Range(1, 1000));
 
-                foreach (var target in targets)
-                {
-                    var resultInts = randomInts.OrderBy(o => random.Next()).Take(3).ToList();
-                    target.UnitCost = (decimal)random.NextDouble();
-                    target.UnitsBalance = resultInts[0];
-                    target.UnitsIn = resultInts[1];
-                    target.UnitsOut = resultInts[2];
-                    target.MovementDate = DateTime.Now;
-                }
+                //var random = new Random(Guid.NewGuid().GetHashCode());
+                //var randomInts = new List<int>(Enumerable.Range(1, 1000));
 
                 //foreach (var target in targets)
                 //{
-                //    target.UnitCost = 2.2m;
-                //    target.UnitsBalance = 888;
-                //    target.UnitsIn = 1;
-                //    target.UnitsOut = 1;
+                //    var resultInts = randomInts.OrderBy(o => random.Next()).Take(3).ToList();
+                //    target.UnitCost = (decimal)random.NextDouble();
+                //    target.UnitsBalance = resultInts[0];
+                //    target.UnitsIn = resultInts[1];
+                //    target.UnitsOut = resultInts[2];
                 //    target.MovementDate = DateTime.Now;
                 //}
+
+                foreach (var target in targets)
+                {
+                    target.UnitCost = 2.2m;
+                    target.UnitsBalance = 888;
+                    target.UnitsIn = 1;
+                    target.UnitsOut = 1;
+                    target.MovementDate = DateTime.Now;
+                }
 
                 foreach (var item in targets)
                 {
@@ -129,14 +130,14 @@ namespace Simple.ORM.InsertBigRow
 
                 try
                 {
-                    this.RowCount = targetDbContext.SaveChanges();
+                    //this.RowCount = targetDbContext.SaveChanges();
+                    this.RowCount = SaveChanges(targetDbContext, targets, EntityState.Modified);
                 }
                 catch (Exception)
                 {
                     throw;
                 }
 
-                //this.RowCount = SaveChanges(targetDbContext, targets, EntityState.Modified);
                 return this.RowCount;
             }
         }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Simple.ORM.InsertBigRow
+namespace Simple.ORM.BatchUpdate
 {
     [TestClass]
     public class InsertUnitTest

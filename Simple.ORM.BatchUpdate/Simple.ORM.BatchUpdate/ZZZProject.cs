@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Transactions;
 
-namespace Simple.ORM.InsertBigRow
+namespace Simple.ORM.BatchUpdate
 {
     public class ZZZProject : IAccess
     {

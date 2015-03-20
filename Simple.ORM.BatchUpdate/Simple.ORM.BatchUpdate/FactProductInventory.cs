@@ -1,4 +1,4 @@
-namespace Simple.ORM.InsertBigRow
+namespace Simple.ORM.BatchUpdate
 {
     using System;
     using System.ComponentModel.DataAnnotations;

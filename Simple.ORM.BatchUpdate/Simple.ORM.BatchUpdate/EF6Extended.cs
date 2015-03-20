@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 
-namespace Simple.ORM.InsertBigRow
+namespace Simple.ORM.BatchUpdate
 {
     public class EF6Extended : IAccess
     {
