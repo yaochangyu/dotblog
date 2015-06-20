@@ -12,16 +12,6 @@ namespace Simple.CustomConfiguration
 {
     public class MySection : ConfigurationSection
     {
-        public static Configuration OpenExeAndLoadDefault()
-        {
-            //var config = ConfigurationManager.OpenMappedMachineConfiguration(new ConfigurationFileMap(targetXmlPath));
-            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-
-            DefaultSettings(config);
-
-            return config;
-        }
-
         public static Configuration LoadFile(string targetXmlPath, bool isCreateDefault = false)
         {
             var config = ConfigurationManager.OpenMappedMachineConfiguration(new ConfigurationFileMap(targetXmlPath));
