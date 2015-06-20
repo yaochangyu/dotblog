@@ -9,26 +9,10 @@ namespace Simple.CustomConfiguration
 {
     public class MemberElementCollection : ConfigurationElementCollection
     {
-        //public MemberElement this[int index]
-        //{
-        //    get { return (MemberElement)BaseGet(index); }
-        //    set
-        //    {
-        //        if (BaseGet(index) != null)
-        //            BaseRemoveAt(index);
-        //        BaseAdd(index, value);
-        //    }
-        //}
-
-        //public void Add(MemberElement element)
-        //{
-        //    BaseAdd(element);
-        //}
-
-        //public void Clear()
-        //{
-        //    BaseClear();
-        //}
+        public MemberElement this[int index]
+        {
+            get { return (MemberElement)this.BaseGet(index); }
+        }
 
         protected override ConfigurationElement CreateNewElement()
         {
@@ -39,20 +23,5 @@ namespace Simple.CustomConfiguration
         {
             return ((MemberElement)element).Id;
         }
-
-        //public void Remove(MemberElement element)
-        //{
-        //    BaseRemove(element.Id);
-        //}
-
-        //public void Remove(string name)
-        //{
-        //    BaseRemove(name);
-        //}
-
-        //public void RemoveAt(int index)
-        //{
-        //    BaseRemoveAt(index);
-        //}
     }
 }

@@ -20,17 +20,25 @@ namespace UnitTestProject1
         [TestMethod]
         public void SectoinGroupTestMethod()
         {
-            var config = (MySection)ConfigurationManager.GetSection("MySectionGroup/MySection1");
+            var config1 = (MySection)ConfigurationManager.GetSection("MySectionGroup/MySection1");
+            var config2 = (MySection)ConfigurationManager.GetSection("MySectionGroup/MySection2");
+
+            Assert.AreEqual("9571", config1.Code);
+            Assert.AreEqual(1, config1.Member.Id);
+            Assert.AreEqual("MySection1", config1.Member.Name);
+
+            Assert.AreEqual("9572", config2.Code);
+            Assert.AreEqual(2, config2.Member.Id);
+            Assert.AreEqual("MySection2", config2.Member.Name);
         }
 
         [TestMethod]
-        public void TestMethod3()
+        public void MembersTestMethod()
         {
             var config = (MySection)ConfigurationManager.GetSection("MySection");
 
-            foreach (MemberElement member in config.Members)
-            {
-            }
+            Assert.AreEqual(1, config.Members[0].Id);
+            Assert.AreEqual("Yao1", config.Members[0].Name);
         }
     }
 }
