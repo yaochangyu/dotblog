@@ -24,5 +24,11 @@ namespace Simple.JavaScriptUseResource
             Utility.WriteLanguage("zh-TW");
             this.Response.Redirect(this.Request.RawUrl);
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            var msg = ClassLibrary1.Class1.GetInfo();
+            this.Response.Write(msg);
+        }
     }
 }

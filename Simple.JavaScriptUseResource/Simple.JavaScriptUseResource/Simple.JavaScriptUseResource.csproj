@@ -83,6 +83,10 @@
     <Content Include="App_LocalResources\Default.aspx.en-US.resx">
       <LastGenOutput>Default.aspx.Designer.cs</LastGenOutput>
     </Content>
+    <Content Include="App_GlobalResources\Library.Lock.en-US.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Library.Lock.en-US.designer.cs</LastGenOutput>
+    </Content>
     <EmbeddedResource Include="App_LocalResources\Default.aspx.resx">
       <LastGenOutput>Default.aspx.Designer.cs</LastGenOutput>
     </EmbeddedResource>
@@ -91,6 +95,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\Library.Lock.en-US.designer.cs">
+      <DependentUpon>Library.Lock.en-US.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="App_GlobalResources\SystemConfig.en-US.designer.cs">
       <DependentUpon>SystemConfig.en-US.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -132,6 +141,12 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>SystemConfig.en-US.designer.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj">
+      <Project>{ef4626aa-3b98-4d83-82d5-644ec0bf238a}</Project>
+      <Name>ClassLibrary1</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

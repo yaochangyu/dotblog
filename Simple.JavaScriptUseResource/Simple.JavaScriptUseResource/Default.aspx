@@ -24,6 +24,9 @@
             <button type="button" onclick="alert(Resources.SystemConfig.Love)">
                 <%= HttpContext.GetGlobalResourceObject("SystemConfig", "Love") %>1
             </button>
+            <br />
+            <asp:Button ID="Button2" runat="server" Text="Library" OnClick="Button2_Click" />
+            <br />
         </div>
     </form>
     <script type="text/javascript">
