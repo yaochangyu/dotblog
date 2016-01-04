@@ -24,8 +24,11 @@ namespace IntegrateUnitTestProject
         [TestMethod]
         public void BLL_TestMethod()
         {
+            var expected = 2;
             FlowBLL bll = new FlowBLL();
             var members = bll.GetMembers();
+            var actual = members.Count();
+            Assert.AreEqual(expected, actual);
         }
     }
 }
