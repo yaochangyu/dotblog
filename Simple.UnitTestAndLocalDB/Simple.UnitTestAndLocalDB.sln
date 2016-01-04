@@ -1,0 +1,105 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDB", "TestDB\TestDB.csproj", "{0582E215-0D84-42D3-8356-50B93791A3D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{CFC44FA7-7C94-4338-B1A5-3915DDCD3812}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{4F36F46C-9954-4188-8906-BF8FD792BE69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrateUnitTestProject", "IntegrateUnitTestProject\IntegrateUnitTestProject.csproj", "{DCEA16E7-9D1C-4304-9CB1-7BBAE10622EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DD1AAAAA-7FD3-4EF4-BB15-800FB0D7EB87}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{19FCF406-7255-427A-BEA6-375B20DD8FD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{AA63398D-2FFA-49DA-AC12-CE123CC4B579}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{9E325570-0E5C-4DBA-BD32-C17348E751E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{B70628BA-7207-43A1-BC5E-19503E8105A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0582E215-0D84-42D3-8356-50B93791A3D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0582E215-0D84-42D3-8356-50B93791A3D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0582E215-0D84-42D3-8356-50B93791A3D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0582E215-0D84-42D3-8356-50B93791A3D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFC44FA7-7C94-4338-B1A5-3915DDCD3812}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFC44FA7-7C94-4338-B1A5-3915DDCD3812}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFC44FA7-7C94-4338-B1A5-3915DDCD3812}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFC44FA7-7C94-4338-B1A5-3915DDCD3812}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F36F46C-9954-4188-8906-BF8FD792BE69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F36F46C-9954-4188-8906-BF8FD792BE69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F36F46C-9954-4188-8906-BF8FD792BE69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F36F46C-9954-4188-8906-BF8FD792BE69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCEA16E7-9D1C-4304-9CB1-7BBAE10622EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCEA16E7-9D1C-4304-9CB1-7BBAE10622EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCEA16E7-9D1C-4304-9CB1-7BBAE10622EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCEA16E7-9D1C-4304-9CB1-7BBAE10622EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA63398D-2FFA-49DA-AC12-CE123CC4B579}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA63398D-2FFA-49DA-AC12-CE123CC4B579}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA63398D-2FFA-49DA-AC12-CE123CC4B579}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA63398D-2FFA-49DA-AC12-CE123CC4B579}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E325570-0E5C-4DBA-BD32-C17348E751E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E325570-0E5C-4DBA-BD32-C17348E751E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E325570-0E5C-4DBA-BD32-C17348E751E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E325570-0E5C-4DBA-BD32-C17348E751E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B70628BA-7207-43A1-BC5E-19503E8105A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B70628BA-7207-43A1-BC5E-19503E8105A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B70628BA-7207-43A1-BC5E-19503E8105A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B70628BA-7207-43A1-BC5E-19503E8105A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0582E215-0D84-42D3-8356-50B93791A3D7} = {19FCF406-7255-427A-BEA6-375B20DD8FD1}
+		{CFC44FA7-7C94-4338-B1A5-3915DDCD3812} = {DD1AAAAA-7FD3-4EF4-BB15-800FB0D7EB87}
+		{4F36F46C-9954-4188-8906-BF8FD792BE69} = {DD1AAAAA-7FD3-4EF4-BB15-800FB0D7EB87}
+		{DCEA16E7-9D1C-4304-9CB1-7BBAE10622EB} = {19FCF406-7255-427A-BEA6-375B20DD8FD1}
+		{AA63398D-2FFA-49DA-AC12-CE123CC4B579} = {19FCF406-7255-427A-BEA6-375B20DD8FD1}
+		{9E325570-0E5C-4DBA-BD32-C17348E751E2} = {DD1AAAAA-7FD3-4EF4-BB15-800FB0D7EB87}
+		{B70628BA-7207-43A1-BC5E-19503E8105A1} = {DD1AAAAA-7FD3-4EF4-BB15-800FB0D7EB87}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs15
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BLL\\BLL.csproj
+		SccProjectTopLevelParentUniqueName1 = Simple.UnitTestAndLocalDB.sln
+		SccProjectName1 = BLL
+		SccLocalPath1 = BLL
+		SccProjectUniqueName2 = DAL\\DAL.csproj
+		SccProjectTopLevelParentUniqueName2 = Simple.UnitTestAndLocalDB.sln
+		SccProjectName2 = DAL
+		SccLocalPath2 = DAL
+		SccProjectUniqueName3 = IntegrateUnitTestProject\\IntegrateUnitTestProject.csproj
+		SccProjectTopLevelParentUniqueName3 = Simple.UnitTestAndLocalDB.sln
+		SccProjectName3 = IntegrateUnitTestProject
+		SccLocalPath3 = IntegrateUnitTestProject
+		SccProjectUniqueName4 = Model\\Model.csproj
+		SccProjectTopLevelParentUniqueName4 = Simple.UnitTestAndLocalDB.sln
+		SccProjectName4 = Model
+		SccLocalPath4 = Model
+		SccProjectUniqueName5 = TestDB\\TestDB.csproj
+		SccProjectTopLevelParentUniqueName5 = Simple.UnitTestAndLocalDB.sln
+		SccProjectName5 = TestDB
+		SccLocalPath5 = TestDB
+		SccProjectUniqueName6 = UI\\UI.csproj
+		SccProjectTopLevelParentUniqueName6 = Simple.UnitTestAndLocalDB.sln
+		SccProjectName6 = UI
+		SccLocalPath6 = UI
+		SccProjectUniqueName7 = UnitTestProject1\\UnitTestProject1.csproj
+		SccProjectTopLevelParentUniqueName7 = Simple.UnitTestAndLocalDB.sln
+		SccProjectName7 = UnitTestProject1
+		SccLocalPath7 = UnitTestProject1
+	EndGlobalSection
+EndGlobal
