@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqPerformance", "LinqPerformance\LinqPerformance.csproj", "{76894D2A-4125-4393-86AF-2B51F0017B0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{F74E446C-7236-4BC1-B622-2E2C4BBA829D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EB24CA89-A78E-4726-80C2-90948A6A9E35}"
+	ProjectSection(SolutionItems) = preProject
+		LinqPerformance.vsmdi = LinqPerformance.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76894D2A-4125-4393-86AF-2B51F0017B0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76894D2A-4125-4393-86AF-2B51F0017B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76894D2A-4125-4393-86AF-2B51F0017B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76894D2A-4125-4393-86AF-2B51F0017B0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F74E446C-7236-4BC1-B622-2E2C4BBA829D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F74E446C-7236-4BC1-B622-2E2C4BBA829D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F74E446C-7236-4BC1-B622-2E2C4BBA829D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F74E446C-7236-4BC1-B622-2E2C4BBA829D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs15
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = LinqPerformance\\LinqPerformance.csproj
+		SccProjectName1 = LinqPerformance
+		SccLocalPath1 = LinqPerformance
+		SccProjectUniqueName2 = TestProject1\\TestProject1.csproj
+		SccProjectName2 = TestProject1
+		SccLocalPath2 = TestProject1
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = LinqPerformance.vsmdi
+	EndGlobalSection
+EndGlobal
