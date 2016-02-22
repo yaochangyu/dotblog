@@ -1,7 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NSubstitute;
 using Simple.Mock;
 using System;
 using System.Web;
+using System.Web.UI.WebControls;
 using WebApplication1;
 
 namespace UnitTestProject1
@@ -32,6 +34,20 @@ namespace UnitTestProject1
                 ;
             ws.CurrentHttpContext = httpContext;
             var actual = ws.HelloWorld1();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void TestMethod3()
+        {
+            var expected = "Hello, yao";
+            WebService1 ws = new WebService1();
+            var mock = Substitute.For<ICurrentUser>();
+            mock.IsAuthenticated().Returns(true);
+            mock.GetName().Returns("yao");
+
+            ws.CurrentUser = mock;
+            var actual = ws.HelloWorld2();
             Assert.AreEqual(expected, actual);
         }
     }
