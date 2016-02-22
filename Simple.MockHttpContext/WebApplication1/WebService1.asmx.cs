@@ -35,21 +35,11 @@ namespace WebApplication1
         public ICurrentUser CurrentUser { get; set; }
 
         [WebMethod]
-        public string HelloWorld()
+        public string HelloWorld1()
         {
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 return "Hello, " + HttpContext.Current.User.Identity.Name;
-            }
-            return "No authentication";
-        }
-
-        [WebMethod]
-        public string HelloWorld1()
-        {
-            if (this.CurrentHttpContext.User.Identity.IsAuthenticated)
-            {
-                return "Hello, " + this.CurrentHttpContext.User.Identity.Name;
             }
             return "No authentication";
         }
@@ -60,6 +50,16 @@ namespace WebApplication1
             if (this.CurrentUser.IsAuthenticated())
             {
                 return "Hello, " + this.CurrentUser.GetName();
+            }
+            return "No authentication";
+        }
+
+        [WebMethod]
+        public string HelloWorld3()
+        {
+            if (this.CurrentHttpContext.User.Identity.IsAuthenticated)
+            {
+                return "Hello, " + this.CurrentHttpContext.User.Identity.Name;
             }
             return "No authentication";
         }

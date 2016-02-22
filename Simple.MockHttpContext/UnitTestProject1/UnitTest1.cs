@@ -19,26 +19,12 @@ namespace UnitTestProject1
 
             HttpContext.Current = FakeHttpContextManager.CreateHttpContext().SetIdentity("yao");
 
-            var actual = ws.HelloWorld();
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        public void TestMethod2()
-        {
-            var expected = "Hello, yao";
-            WebService1 ws = new WebService1();
-
-            var httpContext = FakeHttpContextManager.CreateHttpContextBase()
-                .SetIdentity("yao")
-                ;
-            ws.CurrentHttpContext = httpContext;
             var actual = ws.HelloWorld1();
             Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        public void TestMethod3()
+        public void TestMethod2()
         {
             var expected = "Hello, yao";
             WebService1 ws = new WebService1();
@@ -48,6 +34,20 @@ namespace UnitTestProject1
 
             ws.CurrentUser = mock;
             var actual = ws.HelloWorld2();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void TestMethod3()
+        {
+            var expected = "Hello, yao";
+            WebService1 ws = new WebService1();
+
+            var httpContext = FakeHttpContextManager.CreateHttpContextBase()
+                .SetIdentity("yao")
+                ;
+            ws.CurrentHttpContext = httpContext;
+            var actual = ws.HelloWorld3();
             Assert.AreEqual(expected, actual);
         }
     }
