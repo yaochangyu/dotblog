@@ -35,6 +35,16 @@ namespace WebApplication1
         [WebMethod]
         public string HelloWorld()
         {
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                return "Hello, " + HttpContext.Current.User.Identity.Name;
+            }
+            return "No authentication";
+        }
+
+        [WebMethod]
+        public string HelloWorld1()
+        {
             if (this.CurrentHttpContext.User.Identity.IsAuthenticated)
             {
                 return "Hello, " + this.CurrentHttpContext.User.Identity.Name;

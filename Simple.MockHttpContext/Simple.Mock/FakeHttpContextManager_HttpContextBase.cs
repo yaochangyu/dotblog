@@ -1,6 +1,7 @@
 ﻿using NSubstitute;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
@@ -9,9 +10,9 @@ using System.Web;
 
 namespace Simple.Mock
 {
-    public static class FakeHttpContextManager
+    public static partial class FakeHttpContextManager
     {
-        public static HttpContextBase CreateHttpContext()
+        public static HttpContextBase CreateHttpContextBase()
         {
             var context = Substitute.For<HttpContextBase>();
             var request = Substitute.For<HttpRequestBase>();
@@ -27,17 +28,17 @@ namespace Simple.Mock
             return context;
         }
 
-        public static HttpContextBase SetIdentity(this HttpContextBase httpContext, string name, bool isAuthenticated = true)
+        public static HttpContextBase SetIdentity(this HttpContextBase httpContextBase, string name, bool isAuthenticated = true)
         {
             var principal = Substitute.For<IPrincipal>();
             var identity = Substitute.For<IIdentity>();
             principal.Identity.Returns(identity);
-            httpContext.User.Returns(principal);
+            httpContextBase.User.Returns(principal);
 
             identity.Name.Returns(name);
             identity.IsAuthenticated.Returns(isAuthenticated);
 
-            return httpContext;
+            return httpContextBase;
         }
     }
 }
