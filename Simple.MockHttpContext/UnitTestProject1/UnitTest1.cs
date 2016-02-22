@@ -50,5 +50,22 @@ namespace UnitTestProject1
             var actual = ws.HelloWorld3();
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void MockQueryString_TestMethod()
+        {
+            var expected1 = "yao";
+            var expected2 = "1233";
+            WebService1 ws = new WebService1();
+
+            var httpContext = FakeHttpContextManager.CreateHttpContextBase()
+                .SetQueryString("http://aa.com?name=yao&id=1233")
+                ;
+            ws.CurrentHttpContext = httpContext;
+            var actual1 = ws.GetQueryValue("name");
+            var actual2 = ws.GetQueryValue("id");
+            Assert.AreEqual(expected1, actual1);
+            Assert.AreEqual(expected2, actual2);
+        }
     }
 }

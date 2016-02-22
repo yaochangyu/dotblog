@@ -1,6 +1,7 @@
 ﻿using NSubstitute;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Security.Principal;
@@ -40,5 +41,35 @@ namespace Simple.Mock
 
             return httpContextBase;
         }
+
+        public static HttpContextBase SetQueryString(this HttpContextBase httpContext, string url)
+        {
+            if (url == null)
+            {
+                throw new ArgumentNullException("url");
+            }
+            if (!url.StartsWith("~/"))
+            {
+                //throw new ArgumentException("Sorry, we expect a virtual url starting with \"~/\".");
+            }
+
+            httpContext.Request.QueryString.Returns(GetQueryStringParameters(url));
+            //httpContext.Request.AppRelativeCurrentExecutionFilePath.Returns(GetUrlFileName(url));
+            //httpContext.Request.PathInfo.Returns("");
+
+            return httpContext;
+        }
+
+        public static HttpContextBase AddSession(this HttpContextBase httpContext, string name, object value)
+        {
+            httpContext.Session[name].Returns(value);
+            return httpContext;
+        }
+
+        private static NameValueCollection GetQueryStringParameters(string url)        {            if (url.Contains("?"))            {                NameValueCollection parameters = new NameValueCollection();
+                string[] parts = url.Split("?".ToCharArray());                string[] keys = parts[1].Split("&".ToCharArray());
+                foreach (string key in keys)                {                    string[] part = key.Split("=".ToCharArray());                    parameters.Add(part[0], part[1]);                }
+                return parameters;            }            else            {                return null;            }        }
+        private static string GetUrlFileName(string url)        {            if (url.Contains("?"))                return url.Substring(0, url.IndexOf("?"));            else                return url;        }
     }
 }
