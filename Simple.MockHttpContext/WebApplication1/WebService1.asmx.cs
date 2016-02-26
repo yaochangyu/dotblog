@@ -23,12 +23,11 @@ namespace WebApplication1
         {
             get
             {
-                if (this._currentHttpContext == null &
-                    HttpContext.Current != null)
+                if (this._currentHttpContext != null)
                 {
-                    this._currentHttpContext = new HttpContextWrapper(HttpContext.Current);
+                    return _currentHttpContext;
                 }
-                return _currentHttpContext;
+                return HttpContextFactory.GetHttpContext();
             }
             set { _currentHttpContext = value; }
         }
