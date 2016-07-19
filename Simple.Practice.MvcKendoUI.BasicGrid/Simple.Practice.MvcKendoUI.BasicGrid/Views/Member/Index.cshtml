@@ -1,0 +1,42 @@
+﻿@using Kendo.Mvc.UI
+@using Simple.Practice.MvcKendoUI.BasicGrid.Models.ViewModel
+@(Html.Kendo().Grid<MemberViewModel>()
+      .Name("gird")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.FirstName);
+          columns.Bound(c => c.LastName);
+          columns.Command(command =>
+          {
+              command.Edit();
+              command.Destroy();
+          }).Width(180);
+      })
+      .ToolBar(toolbar =>
+      {
+          toolbar.Create();
+          toolbar.Excel();
+          toolbar.Pdf();
+      })
+      .ColumnMenu()
+      .Editable(p => p.Mode(GridEditMode.PopUp))
+      .Pageable(p => p.Refresh(true)
+                      .PageSizes(true)
+                      .ButtonCount(5))
+      .Navigatable()
+      .Selectable(p =>
+      {
+          p.Mode(GridSelectionMode.Single);
+          p.Type(GridSelectionType.Row);
+      })
+      .Sortable(sortable => { sortable.SortMode(GridSortMode.SingleColumn); })
+      .Filterable()
+      .Scrollable()
+      .DataSource(s => s.Ajax()
+                        .Model(model => model.Id(p => p.Id))
+                        .Read(read => read.Action("Members_Read", "Member"))
+                        .Create(create => create.Action("Members_Create", "Member"))
+                        .Update(update => update.Action("Members_Update", "Member"))
+                        .Destroy(destroy => destroy.Action("Members_Destroy", "Member"))
+      )
+      )
