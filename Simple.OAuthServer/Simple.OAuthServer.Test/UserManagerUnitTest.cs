@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System.Data.Entity;
+using System.Linq;
+using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.AspNet.Identity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -46,27 +48,30 @@ namespace Simple.OAuthServer.Test
         }
 
         [TestMethod]
-        public void UserStore_AddUser()
+        public async Task UserStore_AddUser()
         {
             //arrange
             var dbContext = new ApplicationDbContext();
             var userModel = new ApplicationIdentityUser
             {
-                UserName = "test",
-                Email = "test@test.com"
+                UserName = UserName,
+                Email =Email
             };
-
+            var passwordHash = "AAYDYJmN/+M+AB1GABoxjU77pIOnEXftePKuD6NIbOrN8kbFBjjie8Cq9TA84RxCIA==";
             var userStore = new ApplicationUserStore(dbContext);
 
             //act
-            var task = userStore.CreateAsync(userModel);
-            task.ContinueWith(p =>
-                              {
-                                  if (task.IsCompleted)
-                                  {
-                                      //assert
-                                  }
-                              });
+
+            await userStore.SetPasswordHashAsync(userModel, passwordHash);
+            await userStore.CreateAsync(userModel);
+
+            //assert
+
+            using (var db=new ApplicationDbContext())
+            {
+               var findUser= db.Users.AsNoTracking().FirstOrDefault(p => p.UserName == UserName);
+                findUser.PasswordHash.Should().Be(passwordHash);
+            }
         }
 
         private void RestoreDB()
