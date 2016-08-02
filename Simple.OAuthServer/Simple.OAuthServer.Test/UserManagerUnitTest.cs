@@ -31,7 +31,7 @@ namespace Simple.OAuthServer.Test
         [TestMethod]
         public void UserManager_AddUser()
         {
-            var dbContext = new ApplicationDbContext();
+            var dbContext = new ApplicationDbContext("TestOAuthConnection");
             var userModel = new ApplicationIdentityUser
             {
                 UserName = UserName,
@@ -51,7 +51,7 @@ namespace Simple.OAuthServer.Test
         public async Task UserStore_AddUser()
         {
             //arrange
-            var dbContext = new ApplicationDbContext();
+            var dbContext = new ApplicationDbContext("TestOAuthConnection");
             var userModel = new ApplicationIdentityUser
             {
                 UserName = UserName,
@@ -59,10 +59,11 @@ namespace Simple.OAuthServer.Test
             };
             var passwordHash = "AAYDYJmN/+M+AB1GABoxjU77pIOnEXftePKuD6NIbOrN8kbFBjjie8Cq9TA84RxCIA==";
             var userStore = new ApplicationUserStore(dbContext);
-
+            var passwordStore = userStore as IUserPasswordStore<ApplicationIdentityUser, string>;
+            
             //act
 
-            await userStore.SetPasswordHashAsync(userModel, passwordHash);
+            await passwordStore.SetPasswordHashAsync(userModel, passwordHash);
             await userStore.CreateAsync(userModel);
 
             //assert

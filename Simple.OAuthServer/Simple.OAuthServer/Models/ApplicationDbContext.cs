@@ -12,5 +12,10 @@ namespace Simple.OAuthServer.Models
             base("DefaultConnection")
         {
         }
+
+        public ApplicationDbContext(string connectionString) :
+          base(connectionString)
+        {
+        }
     }
 }
