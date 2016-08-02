@@ -1,8 +1,10 @@
 ﻿using System.Threading.Tasks;
+using System.Web.Hosting;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security.OAuth;
+using Simple.OAuthServer.Models;
 
 namespace Simple.OAuthServer
 {
@@ -10,9 +12,9 @@ namespace Simple.OAuthServer
     {
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
-            var userManager = context.OwinContext.GetUserManager<UserManager<IdentityUser>>();
+            var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
-            IdentityUser user;
+            ApplicationIdentityUser user;
             try
             {
                 user = await userManager.FindAsync(context.UserName, context.Password);

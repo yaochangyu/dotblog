@@ -21,8 +21,7 @@ namespace Simple.OAuthServer
             app.CreatePerOwinContext(() => new ApplicationDbContext());
             app.CreatePerOwinContext<ApplicationUserManager>(CreateUserManager);
 
-            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
-            app.UseCookieAuthentication(new CookieAuthenticationOptions());
+            //app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
 
             var oauthOptions = new OAuthAuthorizationServerOptions
             {
