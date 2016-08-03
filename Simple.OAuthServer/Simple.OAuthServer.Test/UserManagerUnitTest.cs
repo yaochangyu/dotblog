@@ -31,7 +31,7 @@ namespace Simple.OAuthServer.Test
         [TestMethod]
         public void UserManager_AddUser()
         {
-            var dbContext = new ApplicationDbContext("TestOAuthConnection");
+            var dbContext = new ApplicationDbContext();
             var userModel = new ApplicationIdentityUser
             {
                 UserName = UserName,
@@ -51,7 +51,7 @@ namespace Simple.OAuthServer.Test
         public async Task UserStore_AddUser()
         {
             //arrange
-            var dbContext = new ApplicationDbContext("TestOAuthConnection");
+            var dbContext = new ApplicationDbContext();
             var userModel = new ApplicationIdentityUser
             {
                 UserName = UserName,
