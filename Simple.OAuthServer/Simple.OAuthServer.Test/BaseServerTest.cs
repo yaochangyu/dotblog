@@ -20,6 +20,7 @@ namespace Simple.OAuthServer.Test
         [TestInitialize]
         public void Setup()
         {
+           
             Server = TestServer.Create(app =>
                                        {
                                            var startup = new Startup();
