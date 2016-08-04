@@ -47,6 +47,10 @@ namespace Simple.OAuthServer
                 RequireUniqueEmail = true
             };
 
+            userManager.DefaultAccountLockoutTimeSpan = AppSetting.DefaultAccountLockoutTimeSpan;
+            userManager.MaxFailedAccessAttemptsBeforeLockout = AppSetting.MaxFailedAccessAttemptsBeforeLockout;
+            userManager.UserLockoutEnabledByDefault = AppSetting.UserLockoutEnabledByDefault;
+
             // Configure validation logic for passwords
             userManager.PasswordValidator = new PasswordValidator
             {

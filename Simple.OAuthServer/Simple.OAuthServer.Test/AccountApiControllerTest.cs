@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -22,6 +23,9 @@ namespace Simple.OAuthServer.Test
         public static void Initialize(TestContext testContext)
         {
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ApplicationDbContext>());
+            AppSetting.UserLockoutEnabledByDefault = true;
+            AppSetting.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
+            AppSetting.MaxFailedAccessAttemptsBeforeLockout = 3;
         }
 
         [TestCleanup]
@@ -37,7 +41,56 @@ namespace Simple.OAuthServer.Test
         }
 
         [TestMethod]
+        public async Task Login_Bearer_Test()
+        {
+            await RegisterAsync();
+            var token = await LoginAsync();
+            token.AccessToken.Should().NotBeNullOrEmpty();
+        }
+
+        [TestMethod]
+        public async Task Login_Fail_3_Lockout_3Test()
+        {
+            await RegisterAsync();
+
+            Password = "Pass@w0rd2~";
+            var token1 = await LoginAsync();
+            token1.ErrorDescription.Should()
+                  .Be("Invalid credentials. You have 2 more attempt(s) before your account gets locked out.");
+            Password = "Pass@w0rd2~";
+            var token2 = await LoginAsync();
+            token2.ErrorDescription.Should()
+                  .Be("Invalid credentials. You have 1 more attempt(s) before your account gets locked out.");
+
+            Password = "Pass@w0rd2~";
+            var token3 = await LoginAsync();
+            token3.ErrorDescription.Should()
+                  .Be("Your account has been locked out for 5 minutes due to multiple failed login attempts.");
+        }
+
+        private async Task<Token> LoginAsync()
+        {
+            var form = new Dictionary<string, string>
+            {
+                {"grant_type", "password"},
+                {"username", Username},
+                {"password", Password}
+            };
+            var content = new FormUrlEncodedContent(form);
+            var response = await Server.HttpClient.PostAsync("/oauth/token", content);
+
+            var token = await response.Content.ReadAsAsync<Token>(new[] {new JsonMediaTypeFormatter()});
+            return token;
+        }
+
+        [TestMethod]
         public async Task Register_Test()
+        {
+            var response = await RegisterAsync();
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        }
+
+        private async Task<HttpResponseMessage> RegisterAsync()
         {
             var model = new RegisterBindingModel
             {
@@ -47,37 +100,7 @@ namespace Simple.OAuthServer.Test
             };
 
             var response = await PostAsync(s_baseUri + "/Register", model);
-            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
-        }
-
-        [TestMethod]
-        public async Task Login_Bearer_Test()
-        {
-            var model = new RegisterBindingModel
-            {
-                Email = Username,
-                Password = Password,
-                ConfirmPassword = Password
-            };
-
-            await PostAsync(s_baseUri + "/Register", model);
-
-            var form = new Dictionary<string, string>
-            {
-                {"grant_type", "password"},
-                {"username", Username},
-                {"password", Password}
-            };
-
-
-            var content = new FormUrlEncodedContent(form);
-            var response =
-                Server.HttpClient.PostAsync("/oauth/token", content).Result;
-
-            var token = response.Content.ReadAsAsync<Token>(new[] {new JsonMediaTypeFormatter()}).Result;
-
-            response.StatusCode.Should().Be(HttpStatusCode.OK);
-            token.AccessToken.Should().NotBeNullOrEmpty();
+            return response;
         }
 
         private void RestoreDB()
