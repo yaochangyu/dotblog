@@ -10,29 +10,20 @@ using Newtonsoft.Json;
 namespace Simple.DeepClone2
 {
     [TestClass]
-    public class 校能比較測試
+    public class 效能比較測試
     {
         [TestMethod]
         public void 跑吧()
         {
-            var source = this.CreateSource();
-            var mapper = this.CreateMapper();
-
-            //熱機
-            this.CloneByHardCode(source);
-            this.CloneByJsonNET(source);
-            this.CloneByReflection(source);
-            this.CloneByAutoMapper(source, mapper);
-
-            this.Run(source, mapper, 1);
-            this.Run(source, mapper, 10);
-            this.Run(source, mapper, 100);
-            this.Run(source, mapper, 1000);
-            this.Run(source, mapper, 10000);
-            this.Run(source, mapper, 100000);
-            this.Run(source, mapper, 1000000);
-            this.Run(source, mapper, 10000000);
-            this.Run(source, mapper, 100000000);
+            this.Run(1);
+            this.Run(10);
+            this.Run(100);
+            this.Run(1000);
+            this.Run(10000);
+            this.Run(100000);
+            this.Run(1000000);
+            this.Run(10000000);
+            this.Run(100000000);
         }
 
         private Person CloneByAutoMapper(Person source, IMapper mapper)
@@ -129,8 +120,17 @@ namespace Simple.DeepClone2
             Trace.WriteLine(msg);
         }
 
-        private void Run(Person source, IMapper mapper, int count)
+        private void Run(int count)
         {
+            var source = this.CreateSource();
+            var mapper = this.CreateMapper();
+
+            //熱機
+            this.CloneByHardCode(source);
+            this.CloneByJsonNET(source);
+            this.CloneByReflection(source);
+            this.CloneByAutoMapper(source, mapper);
+
             Trace.WriteLine("行執次數:" + count);
             this.ProcessTime(() => this.CloneByHardCode(source), count, "Hard Code".PadRight(20, ' '));
             this.ProcessTime(() => this.CloneByJsonNET(source), count, "JSON.NET".PadRight(20, ' '));
