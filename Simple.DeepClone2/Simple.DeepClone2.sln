@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.DeepClone2", "Simple.DeepClone2\Simple.DeepClone2.csproj", "{8BDE30AB-2F51-47E8-A8CA-AACC5D778CEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{1864E325-0273-47B8-A891-C083A0911517}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BDE30AB-2F51-47E8-A8CA-AACC5D778CEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BDE30AB-2F51-47E8-A8CA-AACC5D778CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BDE30AB-2F51-47E8-A8CA-AACC5D778CEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BDE30AB-2F51-47E8-A8CA-AACC5D778CEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1864E325-0273-47B8-A891-C083A0911517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1864E325-0273-47B8-A891-C083A0911517}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1864E325-0273-47B8-A891-C083A0911517}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1864E325-0273-47B8-A891-C083A0911517}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs15
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Model\\Model.csproj
+		SccProjectName1 = Model
+		SccLocalPath1 = Model
+		SccProjectUniqueName2 = Simple.DeepClone2\\Simple.DeepClone2.csproj
+		SccProjectName2 = Simple.DeepClone2
+		SccLocalPath2 = Simple.DeepClone2
+	EndGlobalSection
+EndGlobal
