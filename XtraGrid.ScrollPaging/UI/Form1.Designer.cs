@@ -38,7 +38,6 @@
             this.colBirthday1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUserId1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.QueryResult_GridControl = new DevExpress.XtraGrid.GridControl();
-            this.memberViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Master_GridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colSequentialId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -48,7 +47,6 @@
             this.colUserId = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Detail_GridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QueryResult_GridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memberViewModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Master_GridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,7 +106,6 @@
             // 
             // QueryResult_GridControl
             // 
-            this.QueryResult_GridControl.DataSource = this.memberViewModelBindingSource;
             this.QueryResult_GridControl.Dock = System.Windows.Forms.DockStyle.Fill;
             gridLevelNode1.LevelTemplate = this.Detail_GridView;
             gridLevelNode1.RelationName = "MemberLogs";
@@ -123,10 +120,6 @@
             this.QueryResult_GridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Master_GridView,
             this.Detail_GridView});
-            // 
-            // memberViewModelBindingSource
-            // 
-            this.memberViewModelBindingSource.DataSource = typeof(Infrastructure.MemberViewModel);
             // 
             // Master_GridView
             // 
@@ -194,7 +187,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Detail_GridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.QueryResult_GridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memberViewModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Master_GridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -216,7 +208,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colName1;
         private DevExpress.XtraGrid.Columns.GridColumn colBirthday1;
         private DevExpress.XtraGrid.Columns.GridColumn colUserId1;
-        private System.Windows.Forms.BindingSource memberViewModelBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colSequentialId;
     }
 }
