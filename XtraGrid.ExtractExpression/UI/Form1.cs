@@ -31,7 +31,7 @@ namespace UI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.GetMasters();
+            this.RenderMasterView();
 
             this.SetSortOnGridView();
 
@@ -45,7 +45,7 @@ namespace UI
             this.Master_GridView.SortInfo.Add(sortInfo);
         }
 
-        private void GetMasters()
+        private void RenderMasterView()
         {
             if (string.IsNullOrWhiteSpace(this.PagingControl.Page.SortExpression))
             {
@@ -62,8 +62,7 @@ namespace UI
             this.PagingControl.Page = new Page
             {
                 PageIndex = 0,
-                RowSize = 10,
-               
+                RowSize = 10
             };
 
             if (this._bll == null)
@@ -91,11 +90,9 @@ namespace UI
             }
 
             this._isRebind = true;
-            this.GetMasters();
+            this.RenderMasterView();
             this._isRebind = false;
         }
-
-        
 
         private void Master_GridView_MasterRowExpanding(object sender, MasterRowCanExpandEventArgs e)
         {
@@ -112,7 +109,7 @@ namespace UI
             }
 
             this._isRebind = true;
-            this.GetMasters();
+            this.RenderMasterView();
             this._isRebind = false;
         }
     }
