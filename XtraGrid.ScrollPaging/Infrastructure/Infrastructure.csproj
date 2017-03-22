@@ -47,7 +47,7 @@
   <ItemGroup>
     <Compile Include="MemberLogViewModel.cs" />
     <Compile Include="MemberViewModel.cs" />
-    <Compile Include="Paging.cs" />
+    <Compile Include="Page.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
