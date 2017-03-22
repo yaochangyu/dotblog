@@ -48,8 +48,6 @@ namespace UI
             }
 
             this.QueryResult_GridControl.DataSource = this._queryResultBindingSource;
-            this._queryResultBindingSource.PositionChanged += this.QueryResult_BindingSource_PositionChanged;
-
             this.PagingControl.PagingChanged += this.PagingControl_PagingChanged;
         }
 
@@ -58,29 +56,6 @@ namespace UI
             this._queryResults = new List<MemberViewModel>(this._bll.GetMasters(this.PagingControl.Page).ToList());
             this._queryResultBindingSource.DataSource = this._queryResults;
             this.PagingControl.UpdateControl();
-        }
-
-        private void QueryResult_BindingSource_PositionChanged(object sender, EventArgs e)
-        {
-            var source = (BindingSource) sender;
-            if (source.Position != this._queryResults.Count - 1)
-            {
-                return;
-            }
-
-            if (this.PagingControl.Page.TotalCount == this._queryResults.Count)
-            {
-                return;
-            }
-
-            this.PagingControl.Page.PageIndex++;
-            var queryResult = this._bll.GetMasters(this.PagingControl.Page);
-            foreach (var item in queryResult)
-            {
-                this._queryResults.Add(item);
-            }
-
-            this.Master_GridView.RefreshData();
         }
     }
 }
