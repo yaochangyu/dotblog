@@ -55,6 +55,7 @@ namespace UI
             {
                 this._queryResultBindingSource = new BindingSource();
             }
+            this._queryResultBindingSource.PositionChanged += this.QueryResult_BindingSource_PositionChanged;
 
             this.Master_GridView.HorzScrollVisibility = ScrollVisibility.Always;
             this.Master_GridView.VertScrollVisibility = ScrollVisibility.Always;
@@ -63,20 +64,12 @@ namespace UI
             this.Master_GridView.OptionsNavigation.EnterMoveNextColumn = true;
             this.Master_GridView.OptionsNavigation.AutoFocusNewRow = true;
 
-            this.Master_GridView.MasterRowExpanding += this.Master_GridView_MasterRowExpanding;
             this.Master_GridView.TopRowChanged += this.Master_GridView_TopRowChanged;
 
+
+
             this.QueryResult_GridControl.UseEmbeddedNavigator = true;
-            this._queryResultBindingSource.PositionChanged += this.QueryResult_BindingSource_PositionChanged;
-
             this.QueryResult_GridControl.DataSource = this._queryResultBindingSource;
-        }
-
-        private void Master_GridView_MasterRowExpanding(object sender, MasterRowCanExpandEventArgs e)
-        {
-            var master = this._queryResultBindingSource.Current as MemberViewModel;
-            var resultLogs = this._bll.GetDetails(master.Id).ToList();
-            master.MemberLogs = resultLogs;
         }
 
         private void Master_GridView_TopRowChanged(object sender, EventArgs e)

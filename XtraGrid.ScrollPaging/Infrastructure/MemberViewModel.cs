@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -87,10 +86,7 @@ namespace Infrastructure
             }
         }
 
-        public List<MemberLogViewModel> MemberLogs { get; set; }
-
         public int SequentialId { get; set; }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 
