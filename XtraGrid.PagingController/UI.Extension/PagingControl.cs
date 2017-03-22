@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using DevExpress.Images;
 using Infrastructure;
 
 namespace UI.Extension
@@ -10,12 +11,36 @@ namespace UI.Extension
         public PagingControl()
         {
             this.InitializeComponent();
+            this.LoadImage();
         }
 
         [Browsable(false)]
         public Page Page { get; set; }
 
         public event EventHandler<PagingChangedEventArgs> PagingChanged;
+
+        private void LoadImage()
+        {
+            this.FirstPage_ToolStripButton
+                .Image = ImageResourceCache.Default
+                                           .GetImage("images/arrows/first_16x16.png");
+            this.FirstPage_ToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+
+            this.PreviousPage_ToolStripButton
+                .Image = ImageResourceCache.Default
+                                           .GetImage("images/arrows/prev_16x16.png");
+            this.PreviousPage_ToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+
+            this.NextPage_ToolStripButton
+                .Image = ImageResourceCache.Default
+                                           .GetImage("images/arrows/next_16x16.png");
+            this.NextPage_ToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+
+            this.LastPage_ToolStripButton
+                .Image = ImageResourceCache.Default
+                                           .GetImage("images/arrows/last_16x16.png");
+            this.LastPage_ToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+        }
 
         public void UpdateControl()
         {

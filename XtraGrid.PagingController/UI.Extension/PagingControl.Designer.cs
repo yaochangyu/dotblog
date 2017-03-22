@@ -53,7 +53,6 @@
             // 
             // FirstPage_ToolStripButton
             // 
-            this.FirstPage_ToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.FirstPage_ToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.FirstPage_ToolStripButton.Name = "FirstPage_ToolStripButton";
             this.FirstPage_ToolStripButton.Size = new System.Drawing.Size(50, 22);
