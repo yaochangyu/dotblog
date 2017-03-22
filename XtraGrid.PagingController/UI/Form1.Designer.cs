@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.Detail_GridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMemberId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -39,12 +37,6 @@
             this.colUserId1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.QueryResult_GridControl = new DevExpress.XtraGrid.GridControl();
             this.Master_GridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colSequentialId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAge = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colBirthday = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colUserId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.PagingControl = new UI.Extension.PagingControl();
             ((System.ComponentModel.ISupportInitialize)(this.Detail_GridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QueryResult_GridControl)).BeginInit();
@@ -108,10 +100,6 @@
             // QueryResult_GridControl
             // 
             this.QueryResult_GridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode1.LevelTemplate = this.Detail_GridView;
-            gridLevelNode1.RelationName = "MemberLogs";
-            this.QueryResult_GridControl.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
             this.QueryResult_GridControl.Location = new System.Drawing.Point(0, 0);
             this.QueryResult_GridControl.MainView = this.Master_GridView;
             this.QueryResult_GridControl.Name = "QueryResult_GridControl";
@@ -123,57 +111,8 @@
             // 
             // Master_GridView
             // 
-            this.Master_GridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colSequentialId,
-            this.colId,
-            this.colAge,
-            this.colName,
-            this.colBirthday,
-            this.colUserId});
             this.Master_GridView.GridControl = this.QueryResult_GridControl;
             this.Master_GridView.Name = "Master_GridView";
-            // 
-            // colSequentialId
-            // 
-            this.colSequentialId.FieldName = "SequentialId";
-            this.colSequentialId.Name = "colSequentialId";
-            this.colSequentialId.Visible = true;
-            this.colSequentialId.VisibleIndex = 5;
-            // 
-            // colId
-            // 
-            this.colId.FieldName = "Id";
-            this.colId.Name = "colId";
-            this.colId.Visible = true;
-            this.colId.VisibleIndex = 0;
-            // 
-            // colAge
-            // 
-            this.colAge.FieldName = "Age";
-            this.colAge.Name = "colAge";
-            this.colAge.Visible = true;
-            this.colAge.VisibleIndex = 1;
-            // 
-            // colName
-            // 
-            this.colName.FieldName = "Name";
-            this.colName.Name = "colName";
-            this.colName.Visible = true;
-            this.colName.VisibleIndex = 2;
-            // 
-            // colBirthday
-            // 
-            this.colBirthday.FieldName = "Birthday";
-            this.colBirthday.Name = "colBirthday";
-            this.colBirthday.Visible = true;
-            this.colBirthday.VisibleIndex = 3;
-            // 
-            // colUserId
-            // 
-            this.colUserId.FieldName = "UserId";
-            this.colUserId.Name = "colUserId";
-            this.colUserId.Visible = true;
-            this.colUserId.VisibleIndex = 4;
             // 
             // PagingControl
             // 
@@ -209,18 +148,12 @@
         private DevExpress.XtraGrid.GridControl QueryResult_GridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView Master_GridView;
         private DevExpress.XtraGrid.Views.Grid.GridView Detail_GridView;
-        private DevExpress.XtraGrid.Columns.GridColumn colId;
-        private DevExpress.XtraGrid.Columns.GridColumn colAge;
-        private DevExpress.XtraGrid.Columns.GridColumn colName;
-        private DevExpress.XtraGrid.Columns.GridColumn colBirthday;
-        private DevExpress.XtraGrid.Columns.GridColumn colUserId;
         private DevExpress.XtraGrid.Columns.GridColumn colId1;
         private DevExpress.XtraGrid.Columns.GridColumn colMemberId;
         private DevExpress.XtraGrid.Columns.GridColumn colAge1;
         private DevExpress.XtraGrid.Columns.GridColumn colName1;
         private DevExpress.XtraGrid.Columns.GridColumn colBirthday1;
         private DevExpress.XtraGrid.Columns.GridColumn colUserId1;
-        private DevExpress.XtraGrid.Columns.GridColumn colSequentialId;
         private Extension.PagingControl PagingControl;
     }
 }
