@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Detail_GridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMemberId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAge1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -38,22 +37,9 @@
             this.QueryResult_GridControl = new DevExpress.XtraGrid.GridControl();
             this.Master_GridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.PagingControl = new UI.Extension.PagingControl();
-            ((System.ComponentModel.ISupportInitialize)(this.Detail_GridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QueryResult_GridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Master_GridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Detail_GridView
-            // 
-            this.Detail_GridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colId1,
-            this.colMemberId,
-            this.colAge1,
-            this.colName1,
-            this.colBirthday1,
-            this.colUserId1});
-            this.Detail_GridView.GridControl = this.QueryResult_GridControl;
-            this.Detail_GridView.Name = "Detail_GridView";
             // 
             // colId1
             // 
@@ -106,8 +92,7 @@
             this.QueryResult_GridControl.Size = new System.Drawing.Size(712, 405);
             this.QueryResult_GridControl.TabIndex = 0;
             this.QueryResult_GridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.Master_GridView,
-            this.Detail_GridView});
+            this.Master_GridView});
             // 
             // Master_GridView
             // 
@@ -135,7 +120,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Detail_GridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.QueryResult_GridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Master_GridView)).EndInit();
             this.ResumeLayout(false);
@@ -147,7 +131,6 @@
 
         private DevExpress.XtraGrid.GridControl QueryResult_GridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView Master_GridView;
-        private DevExpress.XtraGrid.Views.Grid.GridView Detail_GridView;
         private DevExpress.XtraGrid.Columns.GridColumn colId1;
         private DevExpress.XtraGrid.Columns.GridColumn colMemberId;
         private DevExpress.XtraGrid.Columns.GridColumn colAge1;
