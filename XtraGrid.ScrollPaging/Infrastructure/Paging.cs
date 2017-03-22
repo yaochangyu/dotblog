@@ -3,9 +3,9 @@
 namespace Infrastructure
 {
     /// <summary>
-    ///     Class Paging.
+    ///     Class Page.
     /// </summary>
-    public class Paging
+    public class Page
     {
         /// <summary>
         ///     The _is first page
@@ -31,11 +31,6 @@ namespace Infrastructure
         ///     The _skip
         /// </summary>
         private int _skip;
-
-        /// <summary>
-        ///     The _sort expression
-        /// </summary>
-        private string _sortExpression;
 
         /// <summary>
         ///     Gets a value indicating whether this instance is last page.
@@ -128,17 +123,17 @@ namespace Infrastructure
 
         public string FilterExpression { get; set; }
 
-        public void FirstPageIndex()
+        public void MoveFirstPage()
         {
             this.PageIndex = 0;
         }
 
-        public void LastPageIndex()
+        public void MoveLastPage()
         {
             this.PageIndex = this.PageSize - 1;
         }
 
-        public void NextPageIndex()
+        public void MoveNextPage()
         {
             if (this.PageIndex >= this.PageSize - 1)
             {
@@ -148,7 +143,7 @@ namespace Infrastructure
             this.PageIndex++;
         }
 
-        public void PreviousPageIndex()
+        public void MovePreviousPage()
         {
             if (this.PageIndex <= 0)
             {

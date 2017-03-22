@@ -35,7 +35,7 @@ namespace DAL
             return results;
         }
 
-        public IEnumerable<MemberViewModel> GetMasters(Paging paging)
+        public IEnumerable<MemberViewModel> GetMasters(Page page)
         {
             IEnumerable<MemberViewModel> results = null;
             using (var dbContext = new TestDbContext())
@@ -57,10 +57,10 @@ namespace DAL
                                              //}).ToList()
                                          });
 
-                paging.TotalCount = queryable.Count();
+                page.TotalCount = queryable.Count();
 
-                queryable = queryable.OrderBy(paging.SortExpression);
-                queryable = queryable.Skip(paging.Skip).Take(paging.RowSize);
+                queryable = queryable.OrderBy(page.SortExpression);
+                queryable = queryable.Skip(page.Skip).Take(page.RowSize);
 
                 results = queryable.AsNoTracking().ToList();
             }

@@ -13,7 +13,7 @@ namespace UI
     {
         private MemberBLL _bll;
 
-        private Paging _paging;
+        private Page _page;
         private BindingSource _queryResultBindingSource;
 
         //private ObservableCollection<MemberViewModel> _queryResults;
@@ -30,16 +30,16 @@ namespace UI
         {
             //this._queryResults = new ObservableCollection<MemberViewModel>(this._bll.GetMasters(this._paging).ToList());
             //this._queryResults = new BindingList<MemberViewModel>(this._bll.GetMasters(this._paging).ToList());
-            this._queryResults = new List<MemberViewModel>(this._bll.GetMasters(this._paging).ToList());
+            this._queryResults = new List<MemberViewModel>(this._bll.GetMasters(this._page).ToList());
 
             this._queryResultBindingSource.DataSource = this._queryResults;
         }
 
         private void InitializeInstance()
         {
-            if (this._paging == null)
+            if (this._page == null)
             {
-                this._paging = new Paging
+                this._page = new Page
                 {
                     PageIndex = 0,
                     RowSize = 10,
@@ -80,13 +80,13 @@ namespace UI
                 return;
             }
 
-            if (this._paging.TotalCount <= this._queryResults.Count)
+            if (this._page.TotalCount <= this._queryResults.Count)
             {
                 return;
             }
 
-            this._paging.PageIndex++;
-            var queryResult = this._bll.GetMasters(this._paging);
+            this._page.PageIndex++;
+            var queryResult = this._bll.GetMasters(this._page);
 
             //this.Master_GridView.BeginDataUpdate();
             this.Master_GridView.BeginUpdate();
@@ -106,13 +106,13 @@ namespace UI
                 return;
             }
 
-            if (this._paging.TotalCount == this._queryResults.Count)
+            if (this._page.TotalCount == this._queryResults.Count)
             {
                 return;
             }
 
-            this._paging.PageIndex++;
-            var queryResult = this._bll.GetMasters(this._paging);
+            this._page.PageIndex++;
+            var queryResult = this._bll.GetMasters(this._page);
             foreach (var item in queryResult)
             {
                 this._queryResults.Add(item);

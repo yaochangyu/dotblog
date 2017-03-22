@@ -17,10 +17,10 @@ namespace BLL
             }
         }
 
-        public IEnumerable<MemberViewModel> GetMasters(Paging paging)
+        public IEnumerable<MemberViewModel> GetMasters(Page page)
         {
             IEnumerable<MemberViewModel> results = null;
-            results = this._dal.GetMasters(paging);
+            results = this._dal.GetMasters(page);
 
             return results;
         }
