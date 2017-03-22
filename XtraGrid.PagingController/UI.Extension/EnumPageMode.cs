@@ -8,9 +8,10 @@ namespace UI.Extension
 {
     public enum EnumPageMode
     {
-        NextPage,
-        PreviousPage,
-        FirstPage,
-        LastPage
+        None=0,
+        FirstPage=1,
+        PreviousPage=2,
+        NextPage=3,
+        LastPage=4
     }
 }

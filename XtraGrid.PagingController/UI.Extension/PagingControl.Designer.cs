@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.PagingControl_ToolStrip = new System.Windows.Forms.ToolStrip();
             this.FirstPage_ToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.PreviousPage_ToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.PageIndex_ToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.NextPage_ToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.LastPage_ToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip1.SuspendLayout();
+            this.PagingControl_ToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // toolStrip1
+            // PagingControl_ToolStrip
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.PagingControl_ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FirstPage_ToolStripButton,
             this.PreviousPage_ToolStripButton,
             this.PageIndex_ToolStripLabel,
             this.NextPage_ToolStripButton,
             this.LastPage_ToolStripButton});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(469, 25);
-            this.toolStrip1.TabIndex = 2;
-            this.toolStrip1.Text = "toolStrip1";
+            this.PagingControl_ToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.PagingControl_ToolStrip.Name = "PagingControl_ToolStrip";
+            this.PagingControl_ToolStrip.Size = new System.Drawing.Size(469, 25);
+            this.PagingControl_ToolStrip.TabIndex = 2;
+            this.PagingControl_ToolStrip.Text = "toolStrip1";
             // 
             // FirstPage_ToolStripButton
             // 
@@ -99,12 +99,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.PagingControl_ToolStrip);
             this.DoubleBuffered = true;
             this.Name = "PagingControl";
             this.Size = new System.Drawing.Size(469, 80);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.PagingControl_ToolStrip.ResumeLayout(false);
+            this.PagingControl_ToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,7 +112,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip PagingControl_ToolStrip;
         private System.Windows.Forms.ToolStripButton FirstPage_ToolStripButton;
         private System.Windows.Forms.ToolStripButton PreviousPage_ToolStripButton;
         private System.Windows.Forms.ToolStripLabel PageIndex_ToolStripLabel;

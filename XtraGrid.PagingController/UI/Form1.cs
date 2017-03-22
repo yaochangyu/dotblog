@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using BLL;
-using DevExpress.XtraGrid.Views.Base;
-using DevExpress.XtraGrid.Views.Grid;
 using Infrastructure;
+using UI.Extension;
 
 namespace UI
 {
@@ -13,11 +12,7 @@ namespace UI
     {
         private MemberBLL _bll;
 
-        private Page _paging;
         private BindingSource _queryResultBindingSource;
-
-        //private ObservableCollection<MemberViewModel> _queryResults;
-        //private BindingList<MemberViewModel> _queryResults;
         private List<MemberViewModel> _queryResults;
 
         public Form1()
@@ -28,74 +23,41 @@ namespace UI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //this._queryResults = new ObservableCollection<MemberViewModel>(this._bll.GetMasters(this._paging).ToList());
-            //this._queryResults = new BindingList<MemberViewModel>(this._bll.GetMasters(this._paging).ToList());
-            this._queryResults = new List<MemberViewModel>(this._bll.GetMasters(this._paging).ToList());
-
+            this._queryResults = new List<MemberViewModel>(this._bll.GetMasters(this.PagingControl.Page).ToList());
             this._queryResultBindingSource.DataSource = this._queryResults;
+            this.PagingControl.UpdateControl();
         }
 
         private void InitializeInstance()
         {
-            if (this._paging == null)
+            this.PagingControl.Page = new Page
             {
-                this._paging = new Page
-                {
-                    PageIndex = 0,
-                    RowSize = 10,
-                    SortExpression = "SequentialId Asc"
-                };
-            }
+                PageIndex = 0,
+                RowSize = 10,
+                SortExpression = "SequentialId Asc"
+            };
 
             if (this._bll == null)
             {
                 this._bll = new MemberBLL();
             }
+
             if (this._queryResultBindingSource == null)
             {
                 this._queryResultBindingSource = new BindingSource();
             }
+
+            this.QueryResult_GridControl.DataSource = this._queryResultBindingSource;
             this._queryResultBindingSource.PositionChanged += this.QueryResult_BindingSource_PositionChanged;
 
-            this.Master_GridView.HorzScrollVisibility = ScrollVisibility.Always;
-            this.Master_GridView.VertScrollVisibility = ScrollVisibility.Always;
-            this.Master_GridView.OptionsDetail.AllowExpandEmptyDetails = true;
-
-            this.Master_GridView.OptionsNavigation.EnterMoveNextColumn = true;
-            this.Master_GridView.OptionsNavigation.AutoFocusNewRow = true;
-
-            this.Master_GridView.TopRowChanged += this.Master_GridView_TopRowChanged;
-
-
-
-            this.QueryResult_GridControl.UseEmbeddedNavigator = true;
-            this.QueryResult_GridControl.DataSource = this._queryResultBindingSource;
+            this.PagingControl.PagingChanged += this.PagingControl_PagingChanged;
         }
 
-        private void Master_GridView_TopRowChanged(object sender, EventArgs e)
+        private void PagingControl_PagingChanged(object sender, PagingChangedEventArgs e)
         {
-            var sourceGridView = (GridView) sender;
-            if (sourceGridView.IsRowVisible(sourceGridView.DataRowCount - 1) != RowVisibleState.Visible)
-            {
-                return;
-            }
-
-            if (this._paging.TotalCount <= this._queryResults.Count)
-            {
-                return;
-            }
-
-            this._paging.PageIndex++;
-            var queryResult = this._bll.GetMasters(this._paging);
-
-            //this.Master_GridView.BeginDataUpdate();
-            this.Master_GridView.BeginUpdate();
-            this._queryResults.AddRange(queryResult);
-
-            //this.Master_GridView.EndDataUpdate();
-            this.Master_GridView.EndUpdate();
-
-            //sourceGridView.RefreshData();
+            this._queryResults = new List<MemberViewModel>(this._bll.GetMasters(this.PagingControl.Page).ToList());
+            this._queryResultBindingSource.DataSource = this._queryResults;
+            this.PagingControl.UpdateControl();
         }
 
         private void QueryResult_BindingSource_PositionChanged(object sender, EventArgs e)
@@ -106,20 +68,19 @@ namespace UI
                 return;
             }
 
-            if (this._paging.TotalCount == this._queryResults.Count)
+            if (this.PagingControl.Page.TotalCount == this._queryResults.Count)
             {
                 return;
             }
 
-            this._paging.PageIndex++;
-            var queryResult = this._bll.GetMasters(this._paging);
+            this.PagingControl.Page.PageIndex++;
+            var queryResult = this._bll.GetMasters(this.PagingControl.Page);
             foreach (var item in queryResult)
             {
                 this._queryResults.Add(item);
             }
 
             this.Master_GridView.RefreshData();
-
         }
     }
 }
