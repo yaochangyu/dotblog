@@ -79,19 +79,19 @@ namespace UI.Extension
             switch (pageMode)
             {
                 case EnumPageMode.NextPage:
-                    page.NextPageIndex();
+                    page.MoveNextPage();
                     break;
 
                 case EnumPageMode.PreviousPage:
-                    page.PreviousPageIndex();
+                    page.MovePreviousPage();
                     break;
 
                 case EnumPageMode.FirstPage:
-                    page.FirstPageIndex();
+                    page.MoveFirstPage();
                     break;
 
                 case EnumPageMode.LastPage:
-                    page.LastPageIndex();
+                    page.MoveLastPage();
                     break;
 
                 default:
