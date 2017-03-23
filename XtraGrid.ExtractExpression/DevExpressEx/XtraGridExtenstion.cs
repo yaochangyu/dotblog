@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using DevExpress.Data;
+using DevExpress.Data.Filtering;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 
@@ -64,6 +65,14 @@ namespace DevExpressEx
 
             result = sortBuilder.ToString();
             return result;
+        }
+
+        public static string GetFilterExpression(this GridView sourceGridView)
+        {
+            var op = sourceGridView.ActiveFilterCriteria;
+            var filterExpression = CriteriaToWhereClauseHelper.GetDynamicLinqWhere(op);
+
+            return filterExpression;
         }
 
         private static void GetFieldAndSortOrder(string source, out string fieldName, out ColumnSortOrder sortOrder)
