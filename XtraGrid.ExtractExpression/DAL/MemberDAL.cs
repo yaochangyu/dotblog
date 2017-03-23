@@ -35,7 +35,7 @@ namespace DAL
             return results;
         }
 
-        public IEnumerable<MemberViewModel> GetMasters(Page paging)
+        public IEnumerable<MemberViewModel> GetMasters(Page page)
         {
             IEnumerable<MemberViewModel> results = null;
             using (var dbContext = new TestDbContext())
@@ -48,19 +48,16 @@ namespace DAL
                                              Name = p.Name,
                                              UserId = p.UserId,
                                              Birthday = p.Birthday.Value,
-                                             SequentialId=p.SequentialId
-                                             //MemberLogs = p.MemberLogs.Select(a => new MemberLogViewModel
-                                             //{
-                                             //    Id = a.Id,
-                                             //    Name = a.Name,
-                                             //    MemberId = p.Id
-                                             //}).ToList()
+                                             SequentialId = p.SequentialId
                                          });
+                if (!string.IsNullOrWhiteSpace(page.FilterExpression))
+                {
+                    queryable = queryable.Where(page.FilterExpression);
+                }
+                page.TotalCount = queryable.Count();
 
-                paging.TotalCount = queryable.Count();
-
-                queryable = queryable.OrderBy(paging.SortExpression);
-                queryable = queryable.Skip(paging.Skip).Take(paging.RowSize);
+                queryable = queryable.OrderBy(page.SortExpression);
+                queryable = queryable.Skip(page.Skip).Take(page.RowSize);
 
                 results = queryable.AsNoTracking().ToList();
             }

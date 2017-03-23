@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using BLL;
@@ -20,7 +21,7 @@ namespace UI
     {
         private readonly string _defaultField = "SequentialId";
         private MemberBLL _bll;
-        private bool _isRebind;
+        private bool _isBinding;
 
         private BindingSource _queryResultBindingSource;
         private List<MemberViewModel> _queryResults;
@@ -33,21 +34,21 @@ namespace UI
 
         private void BindingOnMasterView()
         {
-            if (string.IsNullOrWhiteSpace(this.PagingControl.Page.SortExpression))
+            if (this._isBinding)
             {
-                var defaultFiledAndSort = this._defaultField + " Asc";
-                this.PagingControl.Page.SortExpression = this.Master_GridView.GetSortExpression(defaultFiledAndSort);
+                return;
             }
-            else
-            {
-                this.PagingControl.Page.SortExpression = this.Master_GridView.GetSortExpression();
-            }
+
+            this._isBinding = true;
+            var defaultFiledAndSort = this._defaultField + " Asc";
+            this.PagingControl.Page.SortExpression = this.Master_GridView.GetSortExpression(defaultFiledAndSort);
 
             this.PagingControl.Page.FilterExpression = this.Master_GridView.GetFilterExpression();
 
             this._queryResults = new List<MemberViewModel>(this._bll.GetMasters(this.PagingControl.Page).ToList());
             this._queryResultBindingSource.DataSource = this._queryResults;
             this.PagingControl.UpdateControl();
+            this._isBinding = false;
         }
 
         public string GetFilterExpression(ColumnView view)
@@ -86,11 +87,12 @@ namespace UI
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
+            this.Master_GridView.Columns["Name"].OptionsFilter.FilterPopupMode = FilterPopupMode.Excel;
 
-            foreach (var column in this.Master_GridView.Columns.Cast<GridColumn>())
-            {
-                column.OptionsFilter.FilterPopupMode = FilterPopupMode.Default;
-            }
+            //foreach (var column in this.Master_GridView.Columns.Cast<GridColumn>())
+            //{
+            //    column.OptionsFilter.FilterPopupMode = FilterPopupMode.Excel;
+            //}
         }
 
         private void FilterControl_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
@@ -112,7 +114,14 @@ namespace UI
         {
             this.BindingOnMasterView();
             this.SetSortOnMasterView();
-            this.RegisterOnMasterView();
+            this.Master_GridView.ColumnFilterChanged += this.Master_GridView_ColumnFilterChanged;
+
+            this.Master_GridView.ColumnSortInfoCollectionChanged += this.Master_GridView_ColumnSortInfoCollectionChanged;
+        }
+
+        private void Master_GridView_ColumnSortInfoCollectionChanged(object sender, CollectionChangeEventArgs e)
+        {
+            this.BindingOnMasterView();
         }
 
         private void InitializeInstance()
@@ -147,28 +156,17 @@ namespace UI
 
         private void Master_GridView_EndSorting(object sender, EventArgs e)
         {
-            this._isRebind = false;
+            this._isBinding = false;
         }
 
         private void Master_GridView_ColumnFilterChanged(object sender, EventArgs e)
         {
-            if (this._isRebind)
-            {
-                return;
-            }
-
-            this.UnregisterOnMasterView();
-            this._isRebind = true;
-
             this.BindingOnMasterView();
-
-            this._isRebind = false;
-            this.RegisterOnMasterView();
         }
 
         private void Master_GridView_CustomFilterDialog(object sender, CustomFilterDialogEventArgs e)
         {
-            var view = (GridView) sender;
+            var view = (GridView)sender;
             e.Handled = true;
             view.ShowFilterEditor(e.Column);
         }
@@ -185,40 +183,16 @@ namespace UI
             master.MemberLogs = details;
         }
 
-        private void Master_GridView_StartSorting(object sender, EventArgs e)
-        {
-            if (this._isRebind)
-            {
-                return;
-            }
-
-            this.UnregisterOnMasterView();
-            this._isRebind = true;
-
-            this.BindingOnMasterView();
-
-            this.RegisterOnMasterView();
-            this._isRebind = false;
-        }
-
         private void PagingControl_PagingChanged(object sender, PagingChangedEventArgs e)
         {
-            if (this._isRebind)
+            if (this._isBinding)
             {
                 return;
             }
 
-            this._isRebind = true;
+            this._isBinding = true;
             this.BindingOnMasterView();
-            this._isRebind = false;
-        }
-
-        private void RegisterOnMasterView()
-        {
-            this.Master_GridView.StartSorting += this.Master_GridView_StartSorting;
-
-            //this.Master_GridView.EndSorting -= this.Master_GridView_StartSorting;
-            this.Master_GridView.ColumnFilterChanged += this.Master_GridView_ColumnFilterChanged;
+            this._isBinding = false;
         }
 
         private void SetSortOnMasterView()
@@ -226,13 +200,6 @@ namespace UI
             var sortInfo = new GridColumnSortInfo(this.Master_GridView.Columns[this._defaultField],
                                                   ColumnSortOrder.Ascending);
             this.Master_GridView.SortInfo.Add(sortInfo);
-        }
-
-        private void UnregisterOnMasterView()
-        {
-            //this.Master_GridView.EndSorting -= Master_GridView_StartSorting;
-            this.Master_GridView.StartSorting -= this.Master_GridView_StartSorting;
-            this.Master_GridView.ColumnFilterChanged -= this.Master_GridView_ColumnFilterChanged;
         }
     }
 }
