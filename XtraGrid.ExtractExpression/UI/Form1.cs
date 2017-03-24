@@ -40,6 +40,7 @@ namespace UI
             }
 
             this._isBinding = true;
+
             var defaultFiledAndSort = this._defaultField + " Asc";
             this.PagingControl.Page.SortExpression = this.Master_GridView.GetSortExpression(defaultFiledAndSort);
 
@@ -48,40 +49,8 @@ namespace UI
             this._queryResults = new List<MemberViewModel>(this._bll.GetMasters(this.PagingControl.Page).ToList());
             this._queryResultBindingSource.DataSource = this._queryResults;
             this.PagingControl.UpdateControl();
+
             this._isBinding = false;
-        }
-
-        public string GetFilterExpression(ColumnView view)
-        {
-            var expression = string.Empty;
-
-            if (view.ActiveFilter != null && view.ActiveFilterEnabled
-                && view.ActiveFilter.Expression != string.Empty)
-            {
-                expression = view.ActiveFilter.Expression;
-            }
-            return expression;
-        }
-
-        public string GetSortExpression(ColumnView view)
-        {
-            var expression = string.Empty;
-            foreach (GridColumnSortInfo info in view.SortInfo)
-            {
-                expression += string.Format("[{0}]", info.Column.FieldName);
-
-                if (info.SortOrder == ColumnSortOrder.Descending)
-                {
-                    expression += " DESC";
-                }
-                else
-                {
-                    expression += " ASC";
-                }
-                expression += ", ";
-            }
-
-            return expression.TrimEnd(',', ' ');
         }
 
         protected override void OnShown(EventArgs e)
@@ -166,7 +135,7 @@ namespace UI
 
         private void Master_GridView_CustomFilterDialog(object sender, CustomFilterDialogEventArgs e)
         {
-            var view = (GridView)sender;
+            var view = (GridView) sender;
             e.Handled = true;
             view.ShowFilterEditor(e.Column);
         }
@@ -185,14 +154,7 @@ namespace UI
 
         private void PagingControl_PagingChanged(object sender, PagingChangedEventArgs e)
         {
-            if (this._isBinding)
-            {
-                return;
-            }
-
-            this._isBinding = true;
             this.BindingOnMasterView();
-            this._isBinding = false;
         }
 
         private void SetSortOnMasterView()
