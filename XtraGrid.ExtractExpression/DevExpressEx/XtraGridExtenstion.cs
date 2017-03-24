@@ -48,7 +48,7 @@ namespace DevExpressEx
             return result;
         }
 
-        public static string GetSortExpression(this GridView source)
+        private static string GetSortExpression(this GridView source)
         {
             string result = null;
             var sortBuilder = new StringBuilder();

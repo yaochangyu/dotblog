@@ -56,12 +56,12 @@ namespace UI
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-            this.Master_GridView.Columns["Name"].OptionsFilter.FilterPopupMode = FilterPopupMode.Excel;
+            //this.Master_GridView.Columns["Name"].OptionsFilter.FilterPopupMode = FilterPopupMode.Excel;
 
-            //foreach (var column in this.Master_GridView.Columns.Cast<GridColumn>())
-            //{
-            //    column.OptionsFilter.FilterPopupMode = FilterPopupMode.Excel;
-            //}
+            foreach (var column in this.Master_GridView.Columns.Cast<GridColumn>())
+            {
+                column.OptionsFilter.FilterPopupMode = FilterPopupMode.Excel;
+            }
         }
 
         private void FilterControl_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
@@ -118,14 +118,8 @@ namespace UI
             this.Master_GridView.MasterRowExpanding += this.Master_GridView_MasterRowExpanding;
             this.Master_GridView.CustomFilterDialog += this.Master_GridView_CustomFilterDialog;
             this.Master_GridView.FilterEditorCreated += this.Master_GridView_FilterEditorCreated;
-            this.Master_GridView.EndSorting += this.Master_GridView_EndSorting;
 
             this.PagingControl.PagingChanged += this.PagingControl_PagingChanged;
-        }
-
-        private void Master_GridView_EndSorting(object sender, EventArgs e)
-        {
-            this._isBinding = false;
         }
 
         private void Master_GridView_ColumnFilterChanged(object sender, EventArgs e)
